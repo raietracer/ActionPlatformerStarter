@@ -4,8 +4,7 @@ Playtest coming soon, currently bugged
 No starter kit link yet, clone the repo for a stable local copy
 
 - [Play Online](https://mymstake.itch.io/actionplatformerstarter)
-- [Download Starter Project](https://github.com/raietracer/ActionPlatformerStarter/releases/tag/Latest-Stable)
-- \[Download Addon Pack\]()
+- [Download Starter Project](https://github.com/raietracer/ActionPlatformerStarter/archive/refs/heads/main.zip)
 
 ---
 
