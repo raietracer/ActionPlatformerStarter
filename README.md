@@ -5,6 +5,8 @@
 PLEASE DO NOT ATTEMPT TO MERGE THIS PROJECT WITH YOUR OWN  
 *yet.* It's not ready.
 
+Demo live on the asset page [Itch.io](https://mymstake.itch.io/actionplatformerstarter))!
+
 This project is well underway, but it was also established very hastily and sloppily. There are many graphic assets currently included for testing purposes that will not remain for long, in order to keep licensing complications to a necessary minimum. I plan to replace all assets not created by hand in Godot or an art program with custom ones, and release them under the same MIT license as the code and project files.
 
 The modularity of the project has been maintained through a plethora of exposed properties in the character controller's inspector. Once you have a local copy of the `action_platformer` directory, you should have everything necessary to link functionality into a different project — however, this hasn't yet been properly prepared or implemented and remains theoretical for now.
@@ -82,6 +84,10 @@ No tutorial yet, so this might come in handy:
 Currently, the only guaranteed way to implement the player controller correctly is to start with this project directly.
 
 <!-- Future Addon install instructions will go here -->
+
+### Downloads
+
+- [Download Starter Project](https://github.com/raietracer/ActionPlatformerStarter/archive/refs/heads/main.zip) (same as downloading .zip of repo)
 
 ---
 
