@@ -1,0 +1,89 @@
+[gd_scene load_steps=9 format=3 uid="uid://cx4abfx3nuie"]
+
+[ext_resource type="Script" uid="uid://b35whlue6cwu0" path="res://scripts/scripted_coin.gd" id="1_d1hxv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d1hxv"]
+radius = 0.235
+height = 2.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qkuas"]
+resource_name = "Material"
+cull_mode = 2
+albedo_color = Color(0.82712, 0.665507, 0.295497, 1)
+metallic = 0.87
+metallic_specular = 0.77
+roughness = 0.37
+emission_enabled = true
+emission = Color(0.94, 0.878117, 0.1974, 1)
+emission_energy_multiplier = 0.2
+rim_enabled = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6qqlp"]
+height = 0.12
+radial_segments = 24
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ox01"]
+resource_name = "Material"
+cull_mode = 2
+albedo_color = Color(0.82712, 0.665507, 0.295497, 1)
+metallic = 0.87
+metallic_specular = 0.77
+roughness = 0.37
+emission_enabled = true
+emission = Color(0.94, 0.878117, 0.1974, 1)
+emission_energy_multiplier = 0.2
+rim_enabled = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ktwno"]
+top_radius = 0.4
+bottom_radius = 0.4
+height = 0.16
+radial_segments = 6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ss8h"]
+resource_name = "Material"
+cull_mode = 2
+albedo_color = Color(0, 0, 0, 1)
+metallic = 0.87
+metallic_specular = 0.77
+roughness = 0.37
+emission_enabled = true
+emission = Color(0.94, 0.878117, 0.1974, 1)
+emission_energy_multiplier = 0.2
+rim_enabled = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_a531o"]
+top_radius = 0.42
+bottom_radius = 0.42
+height = 0.15
+radial_segments = 6
+
+[node name="scripted_coin" type="Area3D"]
+collision_layer = 162
+collision_mask = 71
+script = ExtResource("1_d1hxv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("CapsuleShape3D_d1hxv")
+
+[node name="Meshes" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 1, 0)
+
+[node name="coin_base_mesh" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
+material_overlay = SubResource("StandardMaterial3D_qkuas")
+mesh = SubResource("CylinderMesh_6qqlp")
+
+[node name="coin_design_mesh_0" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(1, 0, -4.37114e-08, -4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, 0, 0, 0)
+material_overlay = SubResource("StandardMaterial3D_0ox01")
+mesh = SubResource("CylinderMesh_ktwno")
+skeleton = NodePath("")
+
+[node name="coin_design_mesh_1" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(1, 0, -4.37114e-08, -4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, 0, 0, 0)
+material_overlay = SubResource("StandardMaterial3D_8ss8h")
+mesh = SubResource("CylinderMesh_a531o")
+skeleton = NodePath("")

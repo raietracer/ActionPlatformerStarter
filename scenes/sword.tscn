@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://8iye7xdll5sx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ej6i0"]
+albedo_color = Color(0.740398, 0.740398, 0.740398, 1)
+metallic = 0.9
+metallic_specular = 0.35
+roughness = 0.0
+
+[sub_resource type="PrismMesh" id="PrismMesh_ycbs3"]
+material = SubResource("StandardMaterial3D_ej6i0")
+size = Vector3(0.2, 1.7, 0.04)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n355p"]
+albedo_color = Color(0.69, 0.634455, 0.5313, 1)
+metallic = 0.52
+metallic_specular = 0.12
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_s4ec8"]
+material = SubResource("StandardMaterial3D_n355p")
+radius = 0.06
+height = 0.8
+radial_segments = 6
+rings = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k5whp"]
+albedo_color = Color(0.369995, 0.369995, 0.369995, 1)
+metallic = 0.69
+metallic_specular = 0.78
+roughness = 0.2
+
+[sub_resource type="PrismMesh" id="PrismMesh_1yp6w"]
+material = SubResource("StandardMaterial3D_k5whp")
+left_to_right = 1.3
+size = Vector3(0.3, 0.17, 0.08)
+
+[sub_resource type="PrismMesh" id="PrismMesh_fnw8x"]
+material = SubResource("StandardMaterial3D_k5whp")
+left_to_right = -0.3
+size = Vector3(0.3, 0.17, 0.08)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cp3m4"]
+size = Vector3(0.101044, 1.60468, 0.042778)
+
+[node name="sword" type="Area3D"]
+collision_layer = 80
+collision_mask = 8
+
+[node name="blade_mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07, 0)
+mesh = SubResource("PrismMesh_ycbs3")
+
+[node name="handle_mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0755755, 0)
+mesh = SubResource("CapsuleMesh_s4ec8")
+
+[node name="crossguard_right_mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0971473, 0.3, 0)
+mesh = SubResource("PrismMesh_1yp6w")
+
+[node name="crossguard_left_mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.3, 0)
+mesh = SubResource("PrismMesh_fnw8x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00163269, 1.12674, -0.000171661)
+shape = SubResource("BoxShape3D_cp3m4")

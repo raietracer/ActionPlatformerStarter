@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://bggot3kutopsn"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xqd8p"]
+radius = 0.223591
+height = 0.938522
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_chxiv"]
+resource_name = "Material"
+cull_mode = 2
+albedo_color = Color(0.82712, 0.665507, 0.295497, 1)
+metallic = 0.87
+metallic_specular = 0.77
+roughness = 0.37
+emission_enabled = true
+emission = Color(0.94, 0.878117, 0.1974, 1)
+emission_energy_multiplier = 0.2
+
+[sub_resource type="TorusMesh" id="TorusMesh_wf4pc"]
+inner_radius = 0.125
+outer_radius = 0.225
+rings = 6
+ring_segments = 6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xqd8p"]
+resource_name = "Material"
+cull_mode = 2
+albedo_color = Color(0.82712, 0.665507, 0.295497, 1)
+metallic = 0.87
+metallic_specular = 0.77
+roughness = 0.37
+emission_enabled = true
+emission = Color(0.94, 0.878117, 0.1974, 1)
+emission_energy_multiplier = 0.2
+rim_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_h5xfi"]
+size = Vector3(0.1, 0.5, 0.08)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7hq1w"]
+size = Vector3(0.1, 0.1, 0.08)
+
+[node name="key" type="StaticBody3D"]
+collision_layer = 160
+collision_mask = 65
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_xqd8p")
+
+[node name="Meshes" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+
+[node name="handle_mesh" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(1, 0, -4.37114e-08, -4.37114e-08, 1.91069e-15, -1, 0, 1, 1.91069e-15, 0, 0, 0)
+material_overlay = SubResource("StandardMaterial3D_chxiv")
+mesh = SubResource("TorusMesh_wf4pc")
+
+[node name="stem_mesh" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.42, 0)
+material_overlay = SubResource("StandardMaterial3D_xqd8p")
+mesh = SubResource("BoxMesh_h5xfi")
+
+[node name="tooth_mesh_0" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.105801, -0.568447, 0)
+material_overlay = SubResource("StandardMaterial3D_xqd8p")
+mesh = SubResource("BoxMesh_7hq1w")
