@@ -83,6 +83,7 @@ alignment = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+focus_mode = 0
 alignment = 2
 selected = 0
 item_count = 1

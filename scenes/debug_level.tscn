@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=3 uid="uid://qv21a7i4cm7t"]
+[gd_scene load_steps=98 format=3 uid="uid://qv21a7i4cm7t"]
 
 [ext_resource type="PackedScene" uid="uid://da8ck5chi6l4k" path="res://scenes/fps_controller.tscn" id="1_8brya"]
 [ext_resource type="Texture2D" uid="uid://bfoxoj3l1nw60" path="res://assets/crystal.png" id="2_e7iyd"]
@@ -170,6 +170,10 @@ size = Vector3(12, 0.5, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_yfb36"]
 material = SubResource("StandardMaterial3D_d0iq4")
 size = Vector3(2, 0.1, 8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wnm7q"]
+material = SubResource("StandardMaterial3D_d0iq4")
+size = Vector3(0.2, 0.5, 8)
 
 [sub_resource type="BoxMesh" id="BoxMesh_n8kgl"]
 material = SubResource("StandardMaterial3D_d0iq4")
@@ -503,6 +507,7 @@ transform = Transform3D(-0.0305453, 0.0645785, -0.997445, 0, 0.997911, 0.0646086
 
 [node name="CharacterBody3D" parent="GameElements" instance=ExtResource("1_8brya")]
 transform = Transform3D(-0.627026, 0, -0.778999, 0, 1, 0, 0.778999, 0, -0.627026, -12.165, -4.76837e-07, -2.68608)
+mouse_look_sensitivity = 0.2
 
 [node name="Mirror" type="CSGBox3D" parent="GameElements"]
 transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -12.8191, 2, 1.0308)
@@ -535,151 +540,151 @@ near = 0.1
 [node name="Node3D" type="Node3D" parent="GameElements/Mirror"]
 
 [node name="rolling_coins" type="Node3D" parent="GameElements"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2.29)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.4753, 0, -15.3019)
 
 [node name="physics_coin" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.073436, -0.959215, 0.272974, -0.840827, 0.206739, 0.500269, -0.5363, -0.192786, -0.821716, -5.71745, -1.36125, -69.2039)
+transform = Transform3D(-0.073436, -0.959215, 0.272974, -0.840827, 0.206739, 0.500269, -0.5363, -0.192786, -0.821716, -5.71745, -1.36125, 16.8248)
 
 [node name="physics_coin2" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(0.316285, -0.854014, -0.413066, 0.332734, -0.307893, 0.891342, -0.8884, -0.419359, 0.186778, -1.73028, 25.3818, -67.7553)
+transform = Transform3D(0.316285, -0.854014, -0.413066, 0.332734, -0.307893, 0.891342, -0.8884, -0.419359, 0.186778, -1.73028, 25.3818, 18.2734)
 
 [node name="physics_coin3" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(0.661242, -0.346064, 0.665582, -0.454823, 0.520627, 0.722553, -0.59657, -0.780506, 0.186862, -10.1193, 13.0548, -67.7175)
+transform = Transform3D(0.661242, -0.346064, 0.665582, -0.454823, 0.520627, 0.722553, -0.59657, -0.780506, 0.186862, -10.1193, 13.0548, 18.3112)
 
 [node name="physics_coin4" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.20917, -0.975981, 0.0609014, -0.634126, 0.182786, 0.751315, -0.744401, 0.118533, -0.657129, -6.13016, 5.16969, -69.8813)
+transform = Transform3D(-0.20917, -0.975981, 0.0609014, -0.634126, 0.182786, 0.751315, -0.744401, 0.118533, -0.657129, -6.13016, 5.16969, 16.1474)
 
 [node name="physics_coin5" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.073436, -0.959215, 0.272974, -0.840827, 0.206739, 0.500269, -0.5363, -0.192786, -0.821716, -19.4734, 2.65505, -70.1956)
+transform = Transform3D(-0.073436, -0.959215, 0.272974, -0.840827, 0.206739, 0.500269, -0.5363, -0.192786, -0.821716, -19.4734, 2.65505, 15.8331)
 
 [node name="physics_coin6" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.20917, -0.975981, 0.0609014, -0.634126, 0.182786, 0.751315, -0.744401, 0.118533, -0.657129, -12.2904, 14.6267, -68.3812)
+transform = Transform3D(-0.20917, -0.975981, 0.0609014, -0.634126, 0.182786, 0.751315, -0.744401, 0.118533, -0.657129, -12.2904, 14.6267, 17.6475)
 
 [node name="physics_coin7" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.0392834, -0.973483, -0.225364, -0.878294, -0.0739147, 0.472375, -0.476507, 0.216492, -0.8521, -10.3616, -3.44642, -66.976)
+transform = Transform3D(-0.0392834, -0.973483, -0.225364, -0.878294, -0.0739147, 0.472375, -0.476507, 0.216492, -0.8521, -10.3616, -3.44642, 19.0527)
 
 [node name="physics_coin8" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.166657, -0.826074, -0.538355, 0.316594, -0.561913, 0.764215, -0.933808, -0.0430786, 0.355176, 2.00516, 15.9734, -71.74)
+transform = Transform3D(-0.166657, -0.826074, -0.538355, 0.316594, -0.561913, 0.764215, -0.933808, -0.0430786, 0.355176, 2.00516, 15.9734, 14.2887)
 
 [node name="physics_coin9" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(0.471469, -0.756598, 0.453075, -0.319558, 0.332273, 0.887399, -0.821949, -0.563166, -0.0851215, 2.43101, 12.7045, -77.3367)
+transform = Transform3D(0.471469, -0.756598, 0.453075, -0.319558, 0.332273, 0.887399, -0.821949, -0.563166, -0.0851215, 2.43101, 12.7045, 8.69196)
 
 [node name="physics_coin10" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.298123, -0.858788, -0.416659, -0.736049, -0.0710948, 0.673185, -0.607746, 0.507373, -0.610917, -16.0357, 8.5013, -63.577)
+transform = Transform3D(-0.298123, -0.858788, -0.416659, -0.736049, -0.0710948, 0.673185, -0.607746, 0.507373, -0.610917, -16.0357, 8.5013, 22.4517)
 
 [node name="physics_coin11" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.0392834, -0.973483, -0.225364, -0.878294, -0.0739147, 0.472375, -0.476507, 0.216492, -0.8521, 5.50033, 2.74788, -59.6978)
+transform = Transform3D(-0.0392834, -0.973483, -0.225364, -0.878294, -0.0739147, 0.472375, -0.476507, 0.216492, -0.8521, 5.50033, 2.74788, 26.3309)
 
 [node name="physics_coin12" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.298123, -0.858788, -0.416659, -0.736049, -0.0710948, 0.673185, -0.607746, 0.507373, -0.610917, -9.35799, 14.7403, -60.1335)
+transform = Transform3D(-0.298123, -0.858788, -0.416659, -0.736049, -0.0710948, 0.673185, -0.607746, 0.507373, -0.610917, -9.35799, 14.7403, 25.8952)
 
 [node name="physics_coin13" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.073436, -0.959215, 0.272974, -0.840827, 0.206739, 0.500269, -0.5363, -0.192786, -0.821716, -1.43456, 11.9699, -86.1821)
+transform = Transform3D(-0.073436, -0.959215, 0.272974, -0.840827, 0.206739, 0.500269, -0.5363, -0.192786, -0.821716, -1.43456, 11.9699, -0.153442)
 
 [node name="physics_coin14" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(0.316285, -0.854014, -0.413066, 0.332734, -0.307893, 0.891342, -0.8884, -0.419359, 0.186778, -5.49314, 17.6588, -72.0597)
+transform = Transform3D(0.316285, -0.854014, -0.413066, 0.332734, -0.307893, 0.891342, -0.8884, -0.419359, 0.186778, -5.49314, 17.6588, 13.969)
 
 [node name="physics_coin15" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(0.661242, -0.346064, 0.665582, -0.454823, 0.520627, 0.722553, -0.59657, -0.780506, 0.186862, 7.46141, 12.9148, -68.4326)
+transform = Transform3D(0.661242, -0.346064, 0.665582, -0.454823, 0.520627, 0.722553, -0.59657, -0.780506, 0.186862, 7.46141, 12.9148, 17.5961)
 
 [node name="physics_coin16" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.20917, -0.975981, 0.0609014, -0.634126, 0.182786, 0.751315, -0.744401, 0.118533, -0.657129, -18.7416, 20.1068, -88.0163)
+transform = Transform3D(-0.20917, -0.975981, 0.0609014, -0.634126, 0.182786, 0.751315, -0.744401, 0.118533, -0.657129, -18.7416, 20.1068, -1.98764)
 
 [node name="physics_coin17" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.073436, -0.959215, 0.272974, -0.840827, 0.206739, 0.500269, -0.5363, -0.192786, -0.821716, -3.21703, 13.3008, -84.9334)
+transform = Transform3D(-0.073436, -0.959215, 0.272974, -0.840827, 0.206739, 0.500269, -0.5363, -0.192786, -0.821716, -3.21703, 13.3008, 1.09525)
 
 [node name="physics_coin18" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.20917, -0.975981, 0.0609014, -0.634126, 0.182786, 0.751315, -0.744401, 0.118533, -0.657129, -9.49418, 26.8161, -83.3779)
+transform = Transform3D(-0.20917, -0.975981, 0.0609014, -0.634126, 0.182786, 0.751315, -0.744401, 0.118533, -0.657129, -9.49418, 26.8161, 2.65076)
 
 [node name="physics_coin19" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.0392834, -0.973483, -0.225364, -0.878294, -0.0739147, 0.472375, -0.476507, 0.216492, -0.8521, -17.5863, 9.49668, -84.7632)
+transform = Transform3D(-0.0392834, -0.973483, -0.225364, -0.878294, -0.0739147, 0.472375, -0.476507, 0.216492, -0.8521, -17.5863, 9.49668, 1.26546)
 
 [node name="physics_coin20" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.166657, -0.826074, -0.538355, 0.316594, -0.561913, 0.764215, -0.933808, -0.0430786, 0.355176, -3.311, 11.4172, -70.0332)
+transform = Transform3D(-0.166657, -0.826074, -0.538355, 0.316594, -0.561913, 0.764215, -0.933808, -0.0430786, 0.355176, -3.311, 11.4172, 15.9955)
 
 [node name="physics_coin21" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(0.471469, -0.756598, 0.453075, -0.319558, 0.332273, 0.8874, -0.821949, -0.563166, -0.0851215, 3.7481, 11.9687, -88.4793)
+transform = Transform3D(0.471469, -0.756598, 0.453075, -0.319558, 0.332273, 0.8874, -0.821949, -0.563166, -0.0851215, 3.7481, 11.9687, -2.45065)
 
 [node name="physics_coin22" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.298123, -0.858788, -0.416659, -0.736049, -0.0710948, 0.673185, -0.607746, 0.507373, -0.610917, -21.5091, 18.9514, -77.101)
+transform = Transform3D(-0.298123, -0.858788, -0.416659, -0.736049, -0.0710948, 0.673185, -0.607746, 0.507373, -0.610917, -21.5091, 18.9514, 8.92766)
 
 [node name="physics_coin23" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.0392834, -0.973483, -0.225364, -0.878294, -0.0739147, 0.472375, -0.476507, 0.216492, -0.8521, -0.197086, 8.8295, -79.55)
+transform = Transform3D(-0.0392834, -0.973483, -0.225364, -0.878294, -0.0739147, 0.472375, -0.476507, 0.216492, -0.8521, -0.197086, 8.8295, 6.47865)
 
 [node name="physics_coin24" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.298123, -0.858788, -0.416659, -0.736049, -0.0710948, 0.673185, -0.607746, 0.507373, -0.610917, -30.5779, 21.8409, -79.0853)
+transform = Transform3D(-0.298123, -0.858788, -0.416659, -0.736049, -0.0710948, 0.673185, -0.607746, 0.507373, -0.610917, -30.5779, 21.8409, 6.94336)
 
 [node name="physics_coin25" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.073436, -0.959215, 0.272974, -0.840827, 0.206739, 0.500269, -0.5363, -0.192786, -0.821716, -8.61201, 6.28583, -67.2219)
+transform = Transform3D(-0.073436, -0.959215, 0.272974, -0.840827, 0.206739, 0.500269, -0.5363, -0.192786, -0.821716, -8.61201, 6.28583, 18.8068)
 
 [node name="physics_coin26" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(0.316285, -0.854014, -0.413066, 0.332734, -0.307893, 0.891342, -0.8884, -0.419359, 0.186778, -6.99859, 20.1537, -71.0525)
+transform = Transform3D(0.316285, -0.854014, -0.413066, 0.332734, -0.307893, 0.891342, -0.8884, -0.419359, 0.186778, -6.99859, 20.1537, 14.9762)
 
 [node name="physics_coin27" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(0.661242, -0.346064, 0.665582, -0.454823, 0.520627, 0.722553, -0.59657, -0.780506, 0.186862, 2.42746, 12.2341, -64.651)
+transform = Transform3D(0.661242, -0.346064, 0.665582, -0.454823, 0.520627, 0.722553, -0.59657, -0.780506, 0.186862, 2.42746, 12.2341, 21.3777)
 
 [node name="physics_coin28" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.20917, -0.975981, 0.0609014, -0.634126, 0.182786, 0.751315, -0.744401, 0.118533, -0.657129, -15.9202, 8.00498, -71.4825)
+transform = Transform3D(-0.20917, -0.975981, 0.0609014, -0.634126, 0.182786, 0.751315, -0.744401, 0.118533, -0.657129, -15.9202, 8.00498, 14.5462)
 
 [node name="physics_coin29" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.073436, -0.959215, 0.272974, -0.840827, 0.206739, 0.500269, -0.5363, -0.192786, -0.821716, -6.12795, 3.73299, -66.2304)
+transform = Transform3D(-0.073436, -0.959215, 0.272974, -0.840827, 0.206739, 0.500269, -0.5363, -0.192786, -0.821716, -6.12795, 3.73299, 19.7983)
 
 [node name="physics_coin30" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.20917, -0.975981, 0.0609014, -0.634126, 0.182786, 0.751315, -0.744401, 0.118533, -0.657129, -13.3802, 6.96873, -71.4348)
+transform = Transform3D(-0.20917, -0.975981, 0.0609014, -0.634126, 0.182786, 0.751315, -0.744401, 0.118533, -0.657129, -13.3802, 6.96873, 14.5939)
 
 [node name="physics_coin31" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.0392834, -0.973483, -0.225364, -0.878294, -0.0739147, 0.472375, -0.476507, 0.216492, -0.8521, -2.94745, 8.20952, -60.7857)
+transform = Transform3D(-0.0392834, -0.973483, -0.225364, -0.878294, -0.0739147, 0.472375, -0.476507, 0.216492, -0.8521, -2.94745, 8.20952, 25.243)
 
 [node name="physics_coin32" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.166657, -0.826074, -0.538355, 0.316594, -0.561913, 0.764215, -0.933808, -0.0430786, 0.355176, -16.8047, 21.0514, -74.9497)
+transform = Transform3D(-0.166657, -0.826074, -0.538355, 0.316594, -0.561913, 0.764215, -0.933808, -0.0430786, 0.355176, -16.8047, 21.0514, 11.079)
 
 [node name="physics_coin33" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(0.471469, -0.756598, 0.453075, -0.319558, 0.332273, 0.887399, -0.821949, -0.563166, -0.0851215, 0.132862, 14.6268, -77.2593)
+transform = Transform3D(0.471469, -0.756598, 0.453075, -0.319558, 0.332273, 0.887399, -0.821949, -0.563166, -0.0851215, 0.132862, 14.6268, 8.76936)
 
 [node name="physics_coin34" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.298123, -0.858788, -0.416659, -0.736049, -0.0710948, 0.673185, -0.607746, 0.507373, -0.610917, -11.766, 4.78556, -63.7727)
+transform = Transform3D(-0.298123, -0.858788, -0.416659, -0.736049, -0.0710948, 0.673185, -0.607746, 0.507373, -0.610917, -11.766, 4.78556, 22.256)
 
 [node name="physics_coin35" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.0392834, -0.973483, -0.225364, -0.878294, -0.0739147, 0.472375, -0.476507, 0.216492, -0.8521, 1.30223, 4.06276, -60.3487)
+transform = Transform3D(-0.0392834, -0.973483, -0.225364, -0.878294, -0.0739147, 0.472375, -0.476507, 0.216492, -0.8521, 1.30223, 4.06276, 25.68)
 
 [node name="physics_coin36" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.298123, -0.858788, -0.416659, -0.736049, -0.0710948, 0.673185, -0.607746, 0.507373, -0.610917, -20.3654, 8.49937, -65.3339)
+transform = Transform3D(-0.298123, -0.858788, -0.416659, -0.736049, -0.0710948, 0.673185, -0.607746, 0.507373, -0.610917, -20.3654, 8.49937, 20.6948)
 
 [node name="physics_coin37" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.073436, -0.959215, 0.272974, -0.840827, 0.206739, 0.500269, -0.5363, -0.192786, -0.821716, -3.92944, 15.8045, -85.4679)
+transform = Transform3D(-0.073436, -0.959215, 0.272974, -0.840827, 0.206739, 0.500269, -0.5363, -0.192786, -0.821716, -3.92944, 15.8045, 0.560753)
 
 [node name="physics_coin38" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(0.316285, -0.854014, -0.413066, 0.332734, -0.307893, 0.891342, -0.8884, -0.419359, 0.186778, 2.05944, 15.142, -70.9432)
+transform = Transform3D(0.316285, -0.854014, -0.413066, 0.332734, -0.307893, 0.891342, -0.8884, -0.419359, 0.186778, 2.05944, 15.142, 15.0855)
 
 [node name="physics_coin39" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(0.661242, -0.346064, 0.665582, -0.454823, 0.520627, 0.722553, -0.59657, -0.780506, 0.186862, -13.4642, 13.3076, -73.8989)
+transform = Transform3D(0.661242, -0.346064, 0.665582, -0.454823, 0.520627, 0.722553, -0.59657, -0.780506, 0.186862, -13.4642, 13.3076, 12.1298)
 
 [node name="physics_coin40" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.20917, -0.975981, 0.0609014, -0.634126, 0.182786, 0.751315, -0.744401, 0.118533, -0.657129, -13.0547, 20.0021, -86.53)
+transform = Transform3D(-0.20917, -0.975981, 0.0609014, -0.634126, 0.182786, 0.751315, -0.744401, 0.118533, -0.657129, -13.0547, 20.0021, -0.501343)
 
 [node name="physics_coin41" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.073436, -0.959215, 0.272974, -0.840827, 0.206739, 0.500269, -0.5363, -0.192786, -0.821716, 5.03142, 14.7884, -82.1864)
+transform = Transform3D(-0.073436, -0.959215, 0.272974, -0.840827, 0.206739, 0.500269, -0.5363, -0.192786, -0.821716, 5.03142, 14.7884, 3.84225)
 
 [node name="physics_coin42" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.20917, -0.975981, 0.0609014, -0.634126, 0.182786, 0.751315, -0.744401, 0.118533, -0.657129, -8.24599, 23.3035, -84.3101)
+transform = Transform3D(-0.20917, -0.975981, 0.0609014, -0.634126, 0.182786, 0.751315, -0.744401, 0.118533, -0.657129, -8.24599, 23.3035, 1.71856)
 
 [node name="physics_coin43" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.0392834, -0.973483, -0.225364, -0.878294, -0.0739147, 0.472375, -0.476507, 0.216492, -0.8521, -11.6277, 15.9188, -80.8504)
+transform = Transform3D(-0.0392834, -0.973483, -0.225364, -0.878294, -0.0739147, 0.472375, -0.476507, 0.216492, -0.8521, -11.6277, 15.9188, 5.17825)
 
 [node name="physics_coin44" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.166657, -0.826074, -0.538355, 0.316594, -0.561913, 0.764215, -0.933808, -0.0430786, 0.355176, -10.7042, 19.4145, -69.1306)
+transform = Transform3D(-0.166657, -0.826074, -0.538355, 0.316594, -0.561913, 0.764215, -0.933808, -0.0430786, 0.355176, -10.7042, 19.4145, 16.8981)
 
 [node name="physics_coin45" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(0.471469, -0.756598, 0.453075, -0.319558, 0.332273, 0.8874, -0.821949, -0.563166, -0.0851215, 3.46497, 20.5422, -85.4634)
+transform = Transform3D(0.471469, -0.756598, 0.453075, -0.319558, 0.332273, 0.8874, -0.821949, -0.563166, -0.0851215, 3.46497, 20.5422, 0.565254)
 
 [node name="physics_coin46" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.298123, -0.858788, -0.416659, -0.736049, -0.0710948, 0.673185, -0.607746, 0.507373, -0.610917, -22.4432, 25.0974, -75.135)
+transform = Transform3D(-0.298123, -0.858788, -0.416659, -0.736049, -0.0710948, 0.673185, -0.607746, 0.507373, -0.610917, -22.4432, 25.0974, 10.8937)
 
 [node name="physics_coin47" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.0392834, -0.973483, -0.225364, -0.878294, -0.0739147, 0.472375, -0.476507, 0.216492, -0.8521, -7.59061, 13.6245, -79.8023)
+transform = Transform3D(-0.0392834, -0.973483, -0.225364, -0.878294, -0.0739147, 0.472375, -0.476507, 0.216492, -0.8521, -7.59061, 13.6245, 6.22636)
 
 [node name="physics_coin48" parent="GameElements/rolling_coins" instance=ExtResource("5_psbkl")]
-transform = Transform3D(-0.298123, -0.858788, -0.416659, -0.736049, -0.0710948, 0.673185, -0.607746, 0.507373, -0.610917, -22.0603, 23.9782, -76.032)
+transform = Transform3D(-0.298123, -0.858788, -0.416659, -0.736049, -0.0710948, 0.673185, -0.607746, 0.507373, -0.610917, -22.0603, 23.9782, 9.99666)
 
 [node name="coin_line" type="Node3D" parent="GameElements"]
 
@@ -983,10 +988,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.25, -5)
 use_collision = true
 mesh = SubResource("BoxMesh_uumii")
 
-[node name="step2" type="CSGMesh3D" parent="LevelGeometry/Platforms"]
+[node name="wide_minimal_step" type="CSGMesh3D" parent="LevelGeometry/Platforms"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0.05, -0.5)
 use_collision = true
 mesh = SubResource("BoxMesh_yfb36")
+
+[node name="tall_minimal_step" type="CSGMesh3D" parent="LevelGeometry/Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6, 1.25, 7.5)
+use_collision = true
+mesh = SubResource("BoxMesh_wnm7q")
+
+[node name="tall_minimal_step2" type="CSGMesh3D" parent="LevelGeometry/Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8, 0.75, 7.5)
+use_collision = true
+mesh = SubResource("BoxMesh_wnm7q")
+
+[node name="tall_minimal_step3" type="CSGMesh3D" parent="LevelGeometry/Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.25, 7.5)
+use_collision = true
+mesh = SubResource("BoxMesh_wnm7q")
 
 [node name="platform_1" type="CSGMesh3D" parent="LevelGeometry/Platforms"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, -0.5)

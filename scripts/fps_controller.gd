@@ -12,10 +12,12 @@ extends CharacterBody3D
 ##
 ## @tutorial(Majikayo Games Source-like Movement YouTube Tutorial Playlist): https://www.youtube.com/playlist?list=PLbuK0gG93AsHID1DDD1nt4YHcdOmJvWW1
 
+
 #region Properties
 
 @export_category("Fundamental")
 @export_group("Jumping")
+const TERMINAL_VELOCITY = 98
 ## Upward force applied once to engage the jump[br]
 ## [color=yellow]NOTE:[/color] Inspector display is rounded but it remains internally snapped to
 ## increments of [code]0.25[/code]
@@ -24,8 +26,8 @@ extends CharacterBody3D
 ## physics frame in which [method CharacterBody3D.is_on_floor] returns [code]true[/code]
 @export var auto_jump_when_grounded := true
 ## [code]0[/code] air jumps means [code]1[/code] ground jump
-@export_range(0, 9, 1, "or_greater") var max_air_jumps : int = 0
-@export var gravity_buffer := 0.15
+@export_range(0, 9, 1, "or_greater") var max_air_jumps : int = 1
+@export var gravity_buffer := 0.3
 var jumps_remaining : int = 2
 var grav_buf_settler := 0.0
 ## Keeps track of [method CharacterBody3D.is_on_floor] to save calls
@@ -34,15 +36,15 @@ var grounded : bool
 var rising = false
 
 @export_group("Speed")
-@export var walk_speed := 6.0
-@export var sprint_speed := 9.0
+@export var walk_speed := 8.5
+@export var sprint_speed := 15.0
 ## Ground acceleration before pivot 
-@export var base_acceleration := 12
+@export var base_acceleration := 240
 ## How fast (meters / second) to trigger the fov increase
-@export var fov_speed_breakpoint := 20.0
+@export var fov_speed_breakpoint := 30.0
 
 @export_group("Momentum")
-@export var ground_accel := 14.0
+@export var ground_accel := 24.0
 @export var ground_decel := 10.0
 @export var ground_friction := 6.0
 
@@ -53,19 +55,19 @@ var rising = false
 
 @export_group("Camera")
 ## How long the camera takes to slide between zoom levels
-@export var zoom_speed := 0.4
+@export var zoom_speed := 0.8
 ## How long to wait after detecting a zoom input before queuing another zoom input
 @export var anti_zoom_queue := 0.0
 ## Maximum distance in meters the camera may zoom out from the player via input
-@export var max_zoom := 20.0
+@export var max_zoom := 10.0
 ## 3rd person camera field of view
 @export var base_fov := 90.0
 ## 1st person camera field of view
-@export var fps_fov := 100.0
+@export var fps_fov := 110.0
 ## How much the field of view expands (in degrees) upon reaching fov_speed_breakpoint
-@export var fov_increase_amount := 15.0
-@export var stick_look_sensitivity := 2.0
-@export var mouse_look_sensitivity := 0.001
+@export var fov_increase_amount := 10.0
+@export var stick_look_sensitivity := 2.5
+@export var mouse_look_sensitivity := 0.2
 ## Godot's Engine default is 0.5
 @export var custom_gamepad_deadzone := 0.2
 var gamepad_look_vector := Vector2.ZERO
@@ -126,7 +128,7 @@ func _unhandled_input(event: InputEvent):
 	if Input.is_action_just_pressed("quit_game"): get_tree().quit()
 	
 	if Input.is_action_just_pressed("left_click") || Input.is_action_just_pressed("right_click"): Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	if cam_while_clicked && (Input.is_action_just_released("left_click") || Input.is_action_just_released("right_click")): Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	if cam_while_clicked && ((Input.is_action_just_released("left_click") && ! Input.is_action_pressed("right_click")) || (Input.is_action_just_released("right_click")) && !Input.is_action_pressed("left_click")): Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	elif Input.is_action_just_pressed("ui_menu"): Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 	# testing features
@@ -147,11 +149,11 @@ func _unhandled_input(event: InputEvent):
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:
 			use_mesh_forward = cam_while_clicked && event.button_mask == MOUSE_BUTTON_LEFT
-			spin_root.rotate_y(-event.relative.x * mouse_look_sensitivity)
-			%SpringArm3D.rotate_x(-event.relative.y * mouse_look_sensitivity)
+			spin_root.rotate_y(-event.relative.x * mouse_look_sensitivity * 0.01)
+			%SpringArm3D.rotate_x(-event.relative.y * mouse_look_sensitivity * 0.01)
 			%SpringArm3D.rotation.x = clampf(%SpringArm3D.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 			if (%Head.global_transform.basis.z).dot(%Meshes.global_transform.basis.z) > 0.2:
-				%Headspin.rotate_x(-event.relative.y * mouse_look_sensitivity)
+				%Headspin.rotate_x(-event.relative.y * mouse_look_sensitivity * 0.01)
 				%Headspin.rotation.x = clampf(%Headspin.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 			else: %Headspin.rotation = Vector3.ZERO
 			spin_root.rotation.y = wrapf(spin_root.rotation.y, deg_to_rad(0), deg_to_rad(360))
@@ -170,9 +172,10 @@ func _process(delta: float) -> void:
 	change_cam_perspective(delta)
 	look_and_rotate(delta)
 	# Early drop mid jump
-	if ! Input.is_action_pressed("jump") && rising:
-		rising = false
-		grav_buf_settler = 0
+	if grav_buf_settler != 0.0:
+		if rising and ! Input.is_action_pressed("jump"):
+			rising = false
+			grav_buf_settler = 0
 	if Input.is_action_just_pressed("speed_up"): noclip_base_speed_mult = min(100.0, noclip_base_speed_mult * 1.1)
 	if Input.is_action_just_pressed("slow_down"): noclip_base_speed_mult = max(0.1, noclip_base_speed_mult * 0.9)
 	if noclip && Input.is_action_pressed("jump"):
@@ -221,17 +224,19 @@ func _physics_process(delta: float) -> void:
 			self.velocity *= new_speed
 	#		velocity.x = lerp(velocity.x, wish_dir.x * get_move_speed(), delta * (ground_accel)) #if grounded else acceleration / 4))
 	#		velocity.z = lerp(velocity.z, wish_dir.z * get_move_speed(), delta * (ground_accel)) #if grounded else air_acceleration))
-			if Input.is_action_just_pressed("jump") || Input.is_action_pressed("jump") && auto_jump_when_grounded: jump()
+			if Input.is_action_just_pressed("jump") || (Input.is_action_pressed("jump") && auto_jump_when_grounded): jump()
 		else:
 			
 			# Multi Jump
 			if jumps_remaining > 0 && Input.is_action_just_pressed("jump"): jump()
 			
 			# grav_buffer helps jumps reach higher while maintaining a strong gravitational pull for game feel.
-			if grav_buf_settler == 0.0: velocity.y = clampf(velocity.y - 3 * ProjectSettings.get_setting("physics/3d/default_gravity") * delta, -98, velocity.y)
-			elif rising:
-				velocity.y = clampf(velocity.y - ProjectSettings.get_setting("physics/3d/default_gravity") * delta * clampf((0.01 / (grav_buf_settler / gravity_buffer)),0.001, 1.0), -90, velocity.y)
-				grav_buf_settler = clampf(grav_buf_settler - delta, 0, grav_buf_settler)
+			if grav_buf_settler != 0.0 && Input.is_action_pressed("jump"):
+				velocity.y = clampf(velocity.y - (8 * ProjectSettings.get_setting("physics/3d/default_gravity") * delta) * clampf((0.01 / (grav_buf_settler / gravity_buffer)),0.001, 1.0), -TERMINAL_VELOCITY, velocity.y)
+			else:
+				velocity.y = clampf(velocity.y - (8 * ProjectSettings.get_setting("physics/3d/default_gravity") * delta), -TERMINAL_VELOCITY, velocity.y)
+			grav_buf_settler = clampf(grav_buf_settler - delta, 0, grav_buf_settler)
+			rising = velocity.y > 0
 			
 			# CS Surf
 			var cur_speed_in_wish_dir = velocity.dot(wish_dir)
@@ -246,7 +251,6 @@ func _physics_process(delta: float) -> void:
 				else: self.motion_mode = CharacterBody3D.MOTION_MODE_FLOATING
 				clip_velocity(get_wall_normal(), 1.0, delta)
 
-		# Stair Handling
 		if not snap_up_stairs_check(delta):
 			push_away_rigid_bodies()
 			move_and_slide()
@@ -254,7 +258,7 @@ func _physics_process(delta: float) -> void:
 	slide_camera_smooth_back_to_origin(delta)
 
 	# Dont turn mesh forward if only looking around
-	if !use_mesh_forward && (!first_person && (velocity.x != 0.0 || velocity.z != 0.0)):
+	if !use_mesh_forward && !first_person:#(!first_person && (velocity.x != 0.0 || velocity.z != 0.0)):
 		%Meshes.rotation.y = lerp_angle(%Meshes.rotation.y, spin_root.rotation.y, delta * 3 )
 		%Meshes.rotation.y = wrapf(%Meshes.rotation.y, deg_to_rad(0), deg_to_rad(360))
 
@@ -283,10 +287,10 @@ func change_cam_perspective(delta: float) -> void:
 func look_and_rotate(delta: float) -> void:
 	var gamepad_look_target = Input.get_vector("look_left", "look_right", "look_up", "look_down", custom_gamepad_deadzone).normalized()
 	
-	if gamepad_look_target.length() < gamepad_look_vector.length():
-		gamepad_look_vector = gamepad_look_target
-	else:
-		gamepad_look_vector = gamepad_look_vector.lerp(gamepad_look_vector, 5.0 * delta)
+#	if gamepad_look_target.length() < gamepad_look_vector.length():
+#		gamepad_look_vector = gamepad_look_target
+#	else:
+	gamepad_look_vector = gamepad_look_vector.lerp(gamepad_look_vector, 5.0 * delta)
 	
 	if gamepad_look_target != Vector2.ZERO:
 		spin_root.rotate_y(-gamepad_look_target.x * stick_look_sensitivity * delta)
@@ -327,11 +331,10 @@ func get_move_speed() -> float:
 	return final_speed
 
 func jump():
-	print(velocity.length())
 	rising = true
 	if !grounded: jumps_remaining -= 1
 	grounded = false
-	velocity.y = jump_velocity #= clampf(self.velocity.y + jump_velocity, 0., 20.)
+	velocity.y = jump_velocity * (1 + gravity_buffer) #= clampf(self.velocity.y + jump_velocity, 0., 20.)
 	grav_buf_settler = gravity_buffer
 
 func clip_velocity(normal: Vector3, overbounce: float, _delta: float) -> void:
@@ -356,6 +359,7 @@ func run_body_test_motion(from: Transform3D, motion: Vector3, result = null) -> 
 
 func snap_down_to_stairs_check() -> void:
 	var did_snap := false
+	%StairsBelowRayCast.force_raycast_update()
 	var floor_below: bool = %StairsBelowRayCast.is_colliding() and not is_surface_too_steep(%StairsBelowRayCast.get_collision_normal())
 	var was_on_floor_last_frame = Engine.get_physics_frames() - _last_frame_was_on_floor == 1
 	if not is_on_floor() and velocity.y <= 0 and (was_on_floor_last_frame or _snapped_to_stairs_last_frame) and floor_below:
@@ -370,8 +374,8 @@ func snap_down_to_stairs_check() -> void:
 
 func snap_up_stairs_check(delta) -> bool:
 	if not is_on_floor() and not _snapped_to_stairs_last_frame: return false
-	var expected_move_motion = self.velocity * Vector3(1.0,0.0,1.0) * delta
-	var step_pos_with_clearance = self.global_transform.translated(expected_move_motion + Vector3(0.0, max_step_height * 2.0, 0.0))
+	var expected_move_motion = self.velocity * Vector3(1.0,1.0,1.0) * delta
+	var step_pos_with_clearance = self.global_transform.translated(expected_move_motion + Vector3(0.0, max_step_height, 0.0))
 	var down_check_result = PhysicsTestMotionResult3D.new()
 	if (run_body_test_motion(step_pos_with_clearance, Vector3(0.0, -max_step_height * 2.0, 0.0), down_check_result))\
 	and (down_check_result.get_collider().is_class("StaticBody3D") or down_check_result.get_collider().is_class("CSGShape3D")):
@@ -380,7 +384,6 @@ func snap_up_stairs_check(delta) -> bool:
 		%StairsAheadRayCast.global_position = down_check_result.get_collision_point() + Vector3(0.0, max_step_height, 0.0) + expected_move_motion.normalized() * 0.1
 		%StairsAheadRayCast.force_raycast_update()
 		if %StairsAheadRayCast.is_colliding() and not is_surface_too_steep(%StairsAheadRayCast.get_collision_normal()):
-			print("climbing stairs")
 			save_camera_pos_for_smoothing()
 			self.global_position = step_pos_with_clearance.origin + down_check_result.get_travel()
 			apply_floor_snap()
