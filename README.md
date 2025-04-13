@@ -7,8 +7,6 @@ PLEASE DO NOT ATTEMPT TO MERGE THIS PROJECT WITH YOUR OWN
 
 Demo live on the asset page [Itch.io](https://mymstake.itch.io/actionplatformerstarter))!
 
-This project is well underway, but it was also established very hastily and sloppily. There are many graphic assets currently included for testing purposes that will not remain for long, in order to keep licensing complications to a necessary minimum. I plan to replace all assets not created by hand in Godot or an art program with custom ones, and release them under the same MIT license as the code and project files.
-
 The modularity of the project has been maintained through a plethora of exposed properties in the character controller's inspector. Once you have a local copy of the `action_platformer` directory, you should have everything necessary to link functionality into a different project — however, this hasn't yet been properly prepared or implemented and remains theoretical for now.
 
 ---
@@ -21,6 +19,8 @@ This project aims to help both new and experienced Godot users get started build
 
 My goal is — upon completion — for the entire set of scenes, resources, and scripts to live in one neat folder, ready to drag and drop into your own project. Alternatively, it will also serve as a clean and functional starter project for those building from scratch.
 
+Major credit to [Majikayo Games](https://www.youtube.com/@MajikayoGames) who's tutorial series was invaluable for getting the source engine air control feel.  There are more mechanics from the same tutorial series being implemented such as the system for prop physics, stair and ladder handling, as well as the core for player picked interaction via SpringArm3D nodes using sphere shapes to check camera focus.
+
 ---
 
 ## Features
@@ -28,7 +28,7 @@ My goal is — upon completion — for the entire set of scenes, resources, and 
 - An organized and documented player controller script (with an optional drag & drop player scene to swap assets, add custom nodes, and configure!)
 - Universal 1st & 3rd person support
 - Basic kinematics and foundational movement
-- Implements [Majikayo Games](https://www.youtube.com/@MajikayoGames)'s Source-like FPS mechanics
+- Implements 's Source-like FPS mechanics
 - Includes stair handling and pushable object collision with mass weighting from the same series
 - **Multi-Jump**: Double jump, triple jump, etc.
 - **Air Control**: Source engine-inspired feel
@@ -65,6 +65,8 @@ No tutorial yet, so this might come in handy:
 
 ## Future Features
 
+- Mobile ports and controls
+    - Just added to top of priority, beta 1.2 will feature the first mobile support.
 - More movement candy:
     - Glide (battle royale or fantasy-style)
     - Dodge (configurable variations)
