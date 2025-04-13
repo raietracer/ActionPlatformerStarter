@@ -1,9 +1,4 @@
-# Action Platformer Starter
-
-## BETA DISCLAIMER
-
-PLEASE DO NOT ATTEMPT TO MERGE THIS PROJECT WITH YOUR OWN  
-*yet.* It's not ready.
+# BETA DISCLAIMER
 
 Demo live on the asset page [Itch.io](https://mymstake.itch.io/actionplatformerstarter))!
 
@@ -11,88 +6,21 @@ The modularity of the project has been maintained through a plethora of exposed 
 
 ---
 
-## Overview
+# Overview
 
 A versatile, modular, feature-rich starting point for 3D platforming games built in Godot 4.4.
 
-This project aims to help both new and experienced Godot users get started building a 3D action game. At the very least, it provides a stable movement script with a wide array of tuning options and easy potential for swapping out player graphics.
+This project aims to help both new and experienced Godot users get started building a 3D action game. At the very least, it provides a stable movement script with a wide array of tuning options and easy potential for swapping out player graphics and playtesting levels quickly.
 
-My goal is — upon completion — for the entire set of scenes, resources, and scripts to live in one neat folder, ready to drag and drop into your own project. Alternatively, it will also serve as a clean and functional starter project for those building from scratch.
+My goal upon completion is for the entire set of scenes, resources, and scripts to live in one neat folder, ready to drag and drop into your own project. Alternatively, it will also serve as a clean and functional starter project for those building from scratch.
 
 Major credit to [Majikayo Games](https://www.youtube.com/@MajikayoGames) who's tutorial series was invaluable for getting the source engine air control feel.  There are more mechanics from the same tutorial series being implemented such as the system for prop physics, stair and ladder handling, as well as the core for player picked interaction via SpringArm3D nodes using sphere shapes to check camera focus.
 
----
-
-## Features
-
-- An organized and documented player controller script (with an optional drag & drop player scene to swap assets, add custom nodes, and configure!)
-- Universal 1st & 3rd person support
-- Basic kinematics and foundational movement
-- Implements 's Source-like FPS mechanics
-- **Multi-Jump**: Double jump, triple jump, etc.
-- **Air Control**: Source engine-inspired feel
-- **Wall Surf**: Slopes 45°–89° are surfable
-- **Crouch Jump**: Feet lift while crouching mid-air (instead of ducking)
-- Debug menu with an easy teleporter — see `GettingStarted.md` (or the PDF)
-- Fine-tunable adaptive FOV and zoom control
-- Alternative mouse capture system for independent or synchronized look/turn via left/right click (similar to tab-target MMOs)
+To get started with the starter kit, download the main branch .zip [here]()
 
 ---
 
-## Controls
-
-No tutorial yet, so this might come in handy, mobile controls WIP
-
-- **Move**: Gamepad Left Stick / W-A-S-D
-- **Turn Camera**: Gamepad Right Stick / Mouse movement  
-    - Hold right mouse to rotate the character (1st / 3rd person)
-- **Jump**: Gamepad B (PlayStation Circle) / Spacebar
-- **Crouch**: Gamepad Right Stick Button (R3) / Control (tap toggles, hold supported)
-- **Sprint**: Gamepad Left Trigger / Shift
-- **Zoom Camera**: Gamepad D-Pad Up/Down / Mouse Scroll / Keyboard Up/Down
-
-### Debug Controls (Temporary)
-
-- **Toggle Debug Menu / Teleporter**: Grave/Backtick (`\``) (no gamepad input yet, sorry)
-- **Debug Cam**: Gamepad Left Shoulder (L1) / Tab  
-    - Flies in facing direction; jump/crouch for vertical movement
-    - **Change Speed**: (Gamepad input TBD)
-- **Force Release Mouse Cursor**: Gamepad Menu / Escape
-- **Quit Game**: Gamepad Back / Backspace
-
----
-
-## Future Features
-
-- Mobile ports and controls
-    - Just added to top of priority, beta 1.2 will feature the first mobile support.
-- More movement candy:
-    - Glide (battle royale or fantasy-style)
-    - Dodge (configurable variations)
-- Audio!
-- Main Menu
-- In-game Pause Menu
-- More Debug Tools
-- Multiplayer?
-    - Proximity voice chat or bust
-    - Emotes or bust
-- Save files!?
-
----
-
-## Installation
-
-Currently, the only guaranteed way to implement the player controller correctly is to start with this project directly.
-
-<!-- Future Addon install instructions will go here -->
-
-### Downloads
-
-- [Download Starter Project](https://github.com/raietracer/ActionPlatformerStarter/archive/refs/heads/main.zip) (same as downloading .zip of repo)
-
----
-
-## Compatibility
+# Compatibility
 
 - Godot Version: 4.4.1
 - Physics Engine: Jolt
@@ -100,30 +28,8 @@ Currently, the only guaranteed way to implement the player controller correctly 
 
 ---
 
-## Version
+# Version
 
-### 0.1.1 Beta Stable
+Beta 0.1.1
 
-Still some bugs
-- Can't jump while ascending any sloped surface
-- Debug Menu dropdown keeping focus while menu showing
-- Momentum disappears if the player air jumps with direction unaligned to current velocity
-
-### 0.1.0 Beta Stable
-
-**First push**, initial repository — *Uploaded 11 April 2025*
-
-#### Known Issues
-
-- Stair handling currently uses two methods that alternate at runtime depending on framerate when standing at step midpoints  
-    - Plan: Default to upward and force downward handling during descent states
-- The project **cannot yet** be imported by simply dragging and dropping the `action_platformer` folder into another Godot 4.4 project
-
----
-
-## Licensing
-
-This project is licensed under the MIT License for its original code.
-
-However, included assets (sprites, sounds, etc.) may be licensed separately.  
-Some assets may be free for non-commercial use only. Please see `gfx/LICENSES.md` for details.
+See [VERSIONS.md]() for version details
