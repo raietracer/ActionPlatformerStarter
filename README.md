@@ -29,7 +29,6 @@ Major credit to [Majikayo Games](https://www.youtube.com/@MajikayoGames) who's t
 - Universal 1st & 3rd person support
 - Basic kinematics and foundational movement
 - Implements 's Source-like FPS mechanics
-- Includes stair handling and pushable object collision with mass weighting from the same series
 - **Multi-Jump**: Double jump, triple jump, etc.
 - **Air Control**: Source engine-inspired feel
 - **Wall Surf**: Slopes 45°–89° are surfable
@@ -42,7 +41,7 @@ Major credit to [Majikayo Games](https://www.youtube.com/@MajikayoGames) who's t
 
 ## Controls
 
-No tutorial yet, so this might come in handy:
+No tutorial yet, so this might come in handy, mobile controls WIP
 
 - **Move**: Gamepad Left Stick / W-A-S-D
 - **Turn Camera**: Gamepad Right Stick / Mouse movement  
@@ -102,6 +101,13 @@ Currently, the only guaranteed way to implement the player controller correctly 
 ---
 
 ## Version
+
+### 0.1.1 Beta Stable
+
+Still some bugs
+- Can't jump while ascending any sloped surface
+- Debug Menu dropdown keeping focus while menu showing
+- Momentum disappears if the player air jumps with direction unaligned to current velocity
 
 ### 0.1.0 Beta Stable
 
