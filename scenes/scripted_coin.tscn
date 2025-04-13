@@ -59,8 +59,8 @@ height = 0.15
 radial_segments = 6
 
 [node name="scripted_coin" type="Area3D"]
-collision_layer = 162
-collision_mask = 71
+collision_layer = 160
+collision_mask = 65
 script = ExtResource("1_d1hxv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

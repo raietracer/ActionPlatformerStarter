@@ -1,5 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://8iye7xdll5sx"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_cp3m4"]
+size = Vector3(0.101044, 1.60468, 0.042778)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ej6i0"]
 albedo_color = Color(0.740398, 0.740398, 0.740398, 1)
 metallic = 0.9
@@ -38,12 +41,13 @@ material = SubResource("StandardMaterial3D_k5whp")
 left_to_right = -0.3
 size = Vector3(0.3, 0.17, 0.08)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_cp3m4"]
-size = Vector3(0.101044, 1.60468, 0.042778)
-
 [node name="sword" type="Area3D"]
 collision_layer = 80
 collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00163269, 1.12674, -0.000171661)
+shape = SubResource("BoxShape3D_cp3m4")
 
 [node name="blade_mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07, 0)
@@ -60,7 +64,3 @@ mesh = SubResource("PrismMesh_1yp6w")
 [node name="crossguard_left_mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.3, 0)
 mesh = SubResource("PrismMesh_fnw8x")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00163269, 1.12674, -0.000171661)
-shape = SubResource("BoxShape3D_cp3m4")
