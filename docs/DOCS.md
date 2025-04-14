@@ -1,3 +1,19 @@
+# TOC & LEGEND
+
+# Table of Contents
+
+# Terms & Phrases
+
+## "GettingStarted" or "the Starter Guide"
+
+Refers to "GettingStarted.pdf"
+
+Once it has been made, a PDF document guide for using this project as well as some general game design and production methodologies authored by myself. This DOCS.md is the work in progress for "GettingStarted.pdf" in addition to functioning as a temporary holding space for other non-script documentation.  Much of the information kept here for now may end up in the "Gettings Started.pdf" once it has been created, but the guide will focus more on using the project to create a game whereas this document is for the Starter Kit project on whole.
+
+## Modules
+
+module/component/extension
+
 # Links
 
 ## Starter Kit
@@ -61,7 +77,9 @@ No tutorial yet, so this might come in handy, mobile controls WIP
 - Fine-tunable adaptive FOV and zoom control
 - Alternative mouse capture system for independent or synchronized look/turn via left/right click (similar to tab-target MMOs)
 
-## Future Features
+## Goals
+
+### Future Features
 
 - Mobile ports and controls
     - Just added to top of priority, beta 1.2 will feature the first mobile support.
@@ -76,6 +94,39 @@ No tutorial yet, so this might come in handy, mobile controls WIP
     - Proximity voice chat or bust
     - Emotes or bust
 - Save files!?
+
+### v1.0 (Launch Edition)
+
+**In order of priority:**
+- Stable Starter Project & Sample Game
+	- No crashes
+	- No medium severity or higher bugs
+- Device Compatibility
+	- Mobile friendly
+		- iOS branch for Sample Game Demo
+	- Forward+ ready
+- Documented
+	- Code syntax standardized
+	- All original scripts fully "cleaned" for editor help documents (via F1)
+- Modular
+	- Each module of the project should:
+		- be preset with values that present a minimal state
+			- "Minimal state" being as near to 0, false, null, "", {}, or [] as possible without removing functionality
+			- The Sample Game will have presets at the inteded values to make quick prototyping easier.
+		- be independant enough to be removed (and/or replaced)
+			- A documented removal / replacement process for each module should be listed in the Getting Started guide.
+		- be customizable
+			- A document report on each module should be clear and extensive
+			- Functionality should make further extension and tweaks easy to integrate.
+- Translated 
+	- There's always 3rd party translators, but I don't want that to be a necessity for anyone
+	- Top 10 language priorities no order:
+		- Spanish, German, French, Chinese, Japanese, Portuguese, Italian, Korean, Russian, and Polish
+	- All planned languages grouped by family (I'm no language expert so please do correct me):
+		- English (British), German, Dutch, Polish, French, Italian, Spanish, Portuguese (Brazilian)
+		- Russian, Greek, Hebrew, Turkish, Arabic (Egyptian & Levantine)
+		- Japanese, Chinese (Simplified), Korean, Hindi, Thai, Vietnamese, Indonesian, Tagalog
+		- _, _, _, etc., Nonstandard Language variations (ie. American/Canadian/Australian English, European Portuguese, Traditional Chinese)
 
 ---
 
