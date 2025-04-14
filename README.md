@@ -8,7 +8,7 @@ A versatile, modular, feature-rich starting point for 3D platforming games built
 
 Ready to get started on a new 3D Platformer project?  Try this starter kit filled with various hand-picked modules to get you building and playtesting levels ASAP!
 
-**First**, download the [_latest stable project release_]() (this link to the releases should start the download.)
+**First**, download the [_latest stable project release_](https://github.com/mymstake/ActionPlatformerStarter/archive/refs/heads/beta-1-2-dev.zip) (this link to the releases should start the download.)
 Once you've extracted to your location of choice, navigate to the docs folder to find DOCS.md then open the project file in Godot 4.4.x and follow along!
 A copy of the sample game with the Getting Started guide is the intended method of picking up this project, but the Getting Started guide hasn't gotten started yet *drum taps*
 
@@ -22,7 +22,7 @@ My goal upon completion is for the entire set of scenes, resources, and scripts 
 
 Major credit to [Majikayo Games](https://www.youtube.com/@MajikayoGames) who's tutorial series was invaluable for getting the source engine air control feel.  There are more mechanics from the same tutorial series being implemented such as the system for prop physics, stair and ladder handling, as well as the core for player picked interaction via SpringArm3D nodes using sphere shapes to check camera focus.
 
-To get started with the starter kit, download the main branch .zip [here]()
+To get started with the starter kit, download the main branch .zip [here](https://github.com/mymstake/ActionPlatformerStarter/archive/refs/heads/main.zip)
 
 ---
 
