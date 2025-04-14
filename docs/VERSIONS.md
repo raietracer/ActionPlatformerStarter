@@ -8,6 +8,7 @@
 
 ### v0.1.2 (Alpha 2)
 > ***In development***
+> 
 > **Goals**
 - Mobile functionality is highest priority
 	- On screen controls
@@ -18,6 +19,7 @@
 
 ## v0.1.1.8 (Alpha web patch 8)
 > ***Uploaded 14 April 2025***
+> 
 > **Highlights**
 - Mobile controls put on pause while restructuring and searching for air-control bugfix
 	- Air Control seems unchangable without losing all source engine carry-overs, looking into it.
@@ -41,6 +43,7 @@
 
 ### v0.1.1.7 (Alpha web patch 7)
 > ***Uploaded 14 April 2025***
+> 
 > **Highlights**
 - Audio Manager integrated with new Music Player (found in the Debug Menu)
 - Coins working, Mirrors almost mirrors, dust gathering
@@ -56,6 +59,7 @@
 
 ### v0.1.1.3 ~ v0.1.1.6 (Web Patches 3 - 6)
 > ***Uploaded 13 April 2025***
+> 
 > **Highlights**
 - Preparing the HUD
 	- It seems like the most practical step for a properly modular on-screen control scheme for mobile
@@ -81,6 +85,7 @@
 
 ### v0.1.1.1 + v0.1.1.2(Web Patch 1 & 2)
 > ***Uploaded 12, 13 April 2025***
+> 
 > **Highlights**
 - Fixed the sloped surface jump issue and debug menu.
 - Pinned down and managed jump height extending to re-enable it.
@@ -92,6 +97,7 @@
 
 ### 0.1.1.0 (Alpha 1)
 > ***Uploaded 12 April 2025***
+> 
 > **Highlights**
 - The beginnings of GUI
 > **Bugs**
@@ -103,6 +109,7 @@
 
 ### 0.1.0 (Open Beta Launch)
 > *First push*, initial repository — ***Uploaded 11 April 2025***
+> 
 > **Highlights**
 - I was so concerned with bugs at the time I didn't consider writing the features down as patch notes had any point.
 - Most of the base functionality not listed in a patch note from here on out was added at once with the initial state of the repository.
