@@ -15,7 +15,16 @@ extends CharacterBody3D
 
 #region Properties
 
-@export_category("Fundamental")
+@export_category("Movement")
+@export_group("Transverse")
+@export var walk_speed := 7.5
+@export var sprint_speed := 12.0
+## Ground acceleration before pivot 
+@export var base_acceleration := 12
+@export var ground_accel := 12.0
+@export var ground_decel := 10.0
+@export var ground_friction := 6.0
+
 @export_group("Jumping")
 const TERMINAL_VELOCITY = 98
 ## Upward force applied once to engage the jump[br]
@@ -35,64 +44,16 @@ var grounded : bool
 ## Tracks the positive / negative state of velocity.y
 var rising = false
 
-@export_group("Speed")
-@export var walk_speed := 8.5
-@export var sprint_speed := 15.0
-## Ground acceleration before pivot 
-@export var base_acceleration := 240
-## How fast (meters / second) to trigger the fov increase
-@export var fov_speed_breakpoint := 30.0
-
-@export_group("Momentum")
-@export var ground_accel := 24.0
-@export var ground_decel := 10.0
-@export var ground_friction := 6.0
-
-@export_group("Air Surf")
-@export var surf_air_cap := 0.85
-@export var surf_air_accel := 800.0
-@export var surf_air_move_speed := 500.0
-
-@export_group("Camera")
-## How long the camera takes to slide between zoom levels
-@export var zoom_speed := 0.8
-## How long to wait after detecting a zoom input before queuing another zoom input
-@export var anti_zoom_queue := 0.0
-## Maximum distance in meters the camera may zoom out from the player via input
-@export var max_zoom := 10.0
-## 3rd person camera field of view
-@export var base_fov := 90.0
-## 1st person camera field of view
-@export var fps_fov := 110.0
-## How much the field of view expands (in degrees) upon reaching fov_speed_breakpoint
-@export var fov_increase_amount := 10.0
-@export var stick_look_sensitivity := 2.5
-@export var mouse_look_sensitivity := 0.2
-## Godot's Engine default is 0.5
-@export var custom_gamepad_deadzone := 0.2
-var gamepad_look_vector := Vector2.ZERO
-var spin_root = self
-var first_person := true
-var zoom_tween : Tween
-var zoom_input := 0.0
-var target_spring_length := 0.0
-var saved_camera_global_pos = null
-
-@export_category("Extensions")
-@export_group("Experimental")
-@export var cam_while_clicked := true
-var use_mesh_forward = false
-
-@export_group("Noclip")
-@export var noclip_base_speed_mult := 3.0
-var cam_aligned_wish_dir := Vector3.ZERO
-var noclip := false
-
 @export_group("Stair Handling")
 @export var max_step_height := 0.54
 @export var cam_smooth_on_stairs_margin := 0.7
 var _snapped_to_stairs_last_frame := false
 var _last_frame_was_on_floor = -INF
+
+@export_group("Air Control")
+@export var surf_air_cap := 2.85
+@export var surf_air_accel := 800.0
+@export var surf_air_move_speed := 500.0
 
 @export_group("Crouch Jump")
 @export var crouch_translate := 0.7
@@ -109,25 +70,111 @@ var crouch_jump_cam_smoother := 7.0
 ## Higher values make the player snap to a stop faster, effectively a "grip" or "friction"
 @export var stopping_accel_mult := 4.0
 
+@export_group("Wall Surf")
+
+@export_category("Camera")
+@export_group("3D Camera")
+## How long the camera takes to slide between zoom levels
+@export var zoom_speed := 0.8
+## How long to wait after detecting a zoom input before queuing another zoom input
+@export var anti_zoom_queue := 0.0
+## Maximum distance in meters the camera may zoom out from the player via input
+@export var max_zoom := 10.0
+@export var stick_look_sensitivity := 2.5
+@export var mouse_look_sensitivity := 0.2
+## Godot's Engine default is 0.5
+@export var custom_gamepad_deadzone := 0.2
+var gamepad_look_vector := Vector2.ZERO
+var spin_root = self
+var first_person := true
+var zoom_tween : Tween
+var zoom_input := 0.0
+var target_spring_length := 0.0
+var saved_camera_global_pos = null
+
+@export_group("Field of View")
+## 3rd person camera field of view
+@export var base_fov := 90.0
+## 1st person camera field of view
+@export var fps_fov := 110.0
+## How fast (meters / second) the player must be moving to enable the fov increase
+@export var fov_speed_breakpoint := 30.0
+## How much the field of view expands (in degrees) upon reaching fov_speed_breakpoint
+@export var fov_increase_amount := 10.0
+
+@export_group("Look without turning")
+## While true, left click dragging the camera will turn the camera
+@export var cam_while_clicked := true
+var use_mesh_forward = false
+
+@export_category("Experimental")
+
+@export_group("Prop Physics")
+@export var ignored_pushables = ["physics_coin"]
+
+@export_group("Pickups")
+signal collect_pickup(String)
+
+@export_group("Save Data")
+## Temporary player save data
+@export var player_save_data := {
+	"Progression": {
+		"xp_level": 1,
+		"experience": 0,
+	},
+	"Inventory": {
+		"coin": 0,
+		"dust": 0,
+	},
+	"Status": {
+		"health": 300,
+	},
+	"Debug": {}
+}:set = update_player_save_data
+
+
+## Sample flavor collectible.  Gathered by idling, dust is fuel for gaining experience.
+@export var dust_collection_tick_rate: int = 5184 # one thousandth of a day
+var afk_timer: int = 0:
+	set(new_val):
+		afk_timer = new_val
+		hud_ref.update_debug_tracker("afk_timer", afk_timer)
+		if floor(floor(afk_timer - (afk_timer % dust_collection_tick_rate)) / dust_collection_tick_rate) > player_save_data.Inventory.dust:
+			track_pickups()
+
+@export_category("Debugging")
+@export_group("Noclip")
+@export var noclip_base_speed_mult := 3.0
+@export var noclip_sprint_mult := 3.0
+var desired_move_vector := Vector3.ZERO
+var noclip := false
+
 var input_dir := Vector2.ZERO
 var wish_dir := Vector3.ZERO
 
-@onready var DEBUG_MENU_DISPLAY = preload("res://scenes/hud_canvas.tscn")
-var debug_menu_display = null
+@onready var preloaded_hud = preload("res://scenes/hud_canvas.tscn")
+var hud_ref = null
+var debug_menu = null
+signal toggle_debug_menu
 
 #endregion
 #region Overrides
 
 func _ready() -> void:
+	
+	add_hud_to_player()
+	
 	%PlayerCam.fov = base_fov
 	for child in %Meshes.find_children("*", "VisualInstance3D"):
 		child.set_layer_mask_value(1, false)
 		child.set_layer_mask_value(6, true)
+	
+	AudioManager.play("Twitchywhalez - Worlds on Collision Course.wav", "Music", 60)
 
 func _unhandled_input(event: InputEvent):
 	if Input.is_action_just_pressed("quit_game"): get_tree().quit()
 	
-	if Input.is_action_just_pressed("left_click") || Input.is_action_just_pressed("right_click"): Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	if Input.is_action_just_pressed("right_click"): Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	if cam_while_clicked && ((Input.is_action_just_released("left_click") && ! Input.is_action_pressed("right_click")) || (Input.is_action_just_released("right_click")) && !Input.is_action_pressed("left_click")): Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	elif Input.is_action_just_pressed("ui_menu"): Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
@@ -135,19 +182,13 @@ func _unhandled_input(event: InputEvent):
 	if OS.has_feature("debug"):
 		if Input.is_action_just_pressed("noclip"): noclip = !noclip
 		if Input.is_action_just_pressed("testing_reset"):
-			if !debug_menu_display:
-				debug_menu_display = DEBUG_MENU_DISPLAY.instantiate()
-				add_child(debug_menu_display)
-				debug_menu_display.show()
-				debug_menu_display.connect("activate_telepoint", on_telepoint_activated)
-			elif debug_menu_display.visible == true: debug_menu_display.hide()
-			else:
-				debug_menu_display.show()
-				debug_menu_display.refresh_list()
+			if !hud_ref:
+				add_hud_to_player()
+			emit_signal("toggle_debug_menu")
 
 	# camera mouse control
-	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion:
+		if Input.is_action_pressed("left_click") || Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			use_mesh_forward = cam_while_clicked && event.button_mask == MOUSE_BUTTON_LEFT
 			spin_root.rotate_y(-event.relative.x * mouse_look_sensitivity * 0.01)
 			%SpringArm3D.rotate_x(-event.relative.y * mouse_look_sensitivity * 0.01)
@@ -188,6 +229,9 @@ func _process(delta: float) -> void:
 	if %Headspin.global_rotation.x != %SpringArm3D.global_rotation.x && (%Head.global_transform.basis.z).dot(%Meshes.global_transform.basis.z) > 0.2: %Headspin.global_rotation.x = %SpringArm3D.global_rotation.x
 
 func _physics_process(delta: float) -> void:
+	if !is_node_ready():
+		print("funky town runnin physics before we're ready")
+		return
 	if is_on_floor() or _snapped_to_stairs_last_frame:
 		_last_frame_was_on_floor = Engine.get_physics_frames()
 		if !grounded: jumps_remaining = max_air_jumps
@@ -197,10 +241,10 @@ func _physics_process(delta: float) -> void:
 	# Handles look-around without turning
 	if !use_mesh_forward:
 		wish_dir = spin_root.global_basis * Vector3(input_dir.x, 0.0, input_dir.y)
-		cam_aligned_wish_dir = %PlayerCam.global_transform.basis * Vector3(input_dir.x, 0.0, input_dir.y)
+		desired_move_vector = %PlayerCam.global_transform.basis * Vector3(input_dir.x, 0.0, input_dir.y)
 	elif spin_root.global_rotation.y != %Meshes.global_rotation.y && !Input.is_action_pressed("right_click"):
 		wish_dir = %Meshes.global_basis * Vector3(input_dir.x, 0.0, input_dir.y)
-		cam_aligned_wish_dir = %Meshes.global_transform.basis * Vector3(input_dir.x, 0.0, input_dir.y)
+		desired_move_vector = %Meshes.global_transform.basis * Vector3(input_dir.x, 0.0, input_dir.y)
 	
 	# OLD PIVOT CODE
 #	var target_ground_accel = base_acceleration
@@ -208,49 +252,8 @@ func _physics_process(delta: float) -> void:
 
 	handle_crouch(delta)
 	if not handle_noclip(delta):
-		if grounded:
-			# Momentum
-			var cur_speed_in_wish_dir = self.velocity.dot(wish_dir)
-			var add_speed_till_cap = get_move_speed() - cur_speed_in_wish_dir
-			if add_speed_till_cap > 0:
-				var accel_speed = ground_accel * delta * get_move_speed()
-				accel_speed = min(accel_speed, add_speed_till_cap)
-				self.velocity += accel_speed * wish_dir
-			# Friction
-			var control = max(self.velocity.length(), ground_decel)
-			var drop = control * ground_friction * delta
-			var new_speed = max(self.velocity.length() - drop, 0.0)
-			if self.velocity.length() > 0: new_speed /= self.velocity.length()
-			self.velocity *= new_speed
-	#		velocity.x = lerp(velocity.x, wish_dir.x * get_move_speed(), delta * (ground_accel)) #if grounded else acceleration / 4))
-	#		velocity.z = lerp(velocity.z, wish_dir.z * get_move_speed(), delta * (ground_accel)) #if grounded else air_acceleration))
-			if Input.is_action_just_pressed("jump") || (Input.is_action_pressed("jump") && auto_jump_when_grounded): jump()
-		else:
-			
-			# Multi Jump
-			if jumps_remaining > 0 && Input.is_action_just_pressed("jump"): jump()
-			
-			# grav_buffer helps jumps reach higher while maintaining a strong gravitational pull for game feel.
-			if grav_buf_settler != 0.0 && Input.is_action_pressed("jump"):
-				velocity.y = clampf(velocity.y - (8 * ProjectSettings.get_setting("physics/3d/default_gravity") * delta) * clampf((0.01 / (grav_buf_settler / gravity_buffer)),0.001, 1.0), -TERMINAL_VELOCITY, velocity.y)
-			else:
-				velocity.y = clampf(velocity.y - (8 * ProjectSettings.get_setting("physics/3d/default_gravity") * delta), -TERMINAL_VELOCITY, velocity.y)
-			grav_buf_settler = clampf(grav_buf_settler - delta, 0, grav_buf_settler)
-			rising = velocity.y > 0
-			
-			# CS Surf
-			var cur_speed_in_wish_dir = velocity.dot(wish_dir)
-			var capped_speed = min((surf_air_move_speed * wish_dir).length(), surf_air_cap)
-			var add_speed_till_cap = capped_speed - cur_speed_in_wish_dir
-			if add_speed_till_cap > 0:
-				var accel_speed = surf_air_accel * surf_air_move_speed * delta
-				accel_speed = min(accel_speed, add_speed_till_cap)
-				velocity += accel_speed * wish_dir
-			if is_on_wall():
-				if !is_surface_too_steep(get_wall_normal()): self.motion_mode = CharacterBody3D.MOTION_MODE_GROUNDED
-				else: self.motion_mode = CharacterBody3D.MOTION_MODE_FLOATING
-				clip_velocity(get_wall_normal(), 1.0, delta)
-
+		if grounded: handle_grounded_movement(delta)
+		else: handle_air_movement(delta)
 		if not snap_up_stairs_check(delta):
 			push_away_rigid_bodies()
 			move_and_slide()
@@ -261,6 +264,52 @@ func _physics_process(delta: float) -> void:
 	if !use_mesh_forward && !first_person:#(!first_person && (velocity.x != 0.0 || velocity.z != 0.0)):
 		%Meshes.rotation.y = lerp_angle(%Meshes.rotation.y, spin_root.rotation.y, delta * 3 )
 		%Meshes.rotation.y = wrapf(%Meshes.rotation.y, deg_to_rad(0), deg_to_rad(360))
+	
+	afk_timer = (afk_timer if velocity.length() == 0.0 else 0) + int(velocity.length() == 0.0)
+	hud_ref.update_debug_tracker("velocity", velocity)
+
+#endregion
+#region Save Data Setters
+
+## This save data setter function checks attempted changes to save data against each key of save data
+## slightly obfuscating the data while providing a handy central location to sort tasks on changes.
+## [br][br]
+## The parameter new_val must be a Dictionary with at least a key [code]entry_name[/code] with the matching name to a save value
+## and a key [code]entry_change_value[/code] with the new value if non numberic otherwise the amount to change by.
+func update_player_save_data(new_val):
+	var new_val_is_valid = false
+	for save_data_category in player_save_data:
+		new_val_is_valid = player_save_data[save_data_category].has(new_val.entry_name)
+		if new_val_is_valid: break
+	if !new_val_is_valid:
+		print("Save Data entry: %s not found" % new_val.entry_name)
+		return
+	match new_val.entry_name:
+	#Progression
+		"xp_level":
+			player_save_data.Progression.xp_level += new_val.entry_change_value
+		"experience":
+			#
+			update_player_save_data({"entry_name": "xp_level", "entry_change_value": check_for_level_ups(new_val.entry_change_value)})
+	#Inventory
+		"coin":
+			player_save_data.Inventory.coin += new_val.entry_change_value
+		"dust":
+			player_save_data.Inventory.dust += new_val.entry_change_value
+	#Status
+		"health":
+			player_save_data.Status.health += new_val.entry_change_value
+	#Debug
+		_:
+			player_save_data.Debug.merge({new_val.entry_name: new_val.entry_change_value}, true)
+
+## Checks xp gains against an example formula for leveling up for the data saver
+func check_for_level_ups(experience_gain: int = 0) -> int:
+	var gained_levels: int = 0
+	if experience_gain > 0:
+		# For now level is a simple counter for every 100 experience, feel free to get creative with the math here.
+		gained_levels += floor(floor(experience_gain - (experience_gain % 100)) / 100)
+	return gained_levels
 
 #endregion
 #region Camera Methods
@@ -319,6 +368,49 @@ func slide_camera_smooth_back_to_origin(delta: float):
 
 #endregion
 #region Movement
+
+func handle_grounded_movement(delta):
+	# Momentum
+	var cur_speed_in_wish_dir = self.velocity.dot(wish_dir)
+	var add_speed_till_cap = get_move_speed() - cur_speed_in_wish_dir
+	if add_speed_till_cap > 0:
+		var accel_speed = ground_accel * delta * get_move_speed()
+		accel_speed = min(accel_speed, add_speed_till_cap)
+		self.velocity += accel_speed * wish_dir
+	# Friction
+	var control = max(self.velocity.length(), ground_decel)
+	var drop = control * ground_friction * delta
+	var new_speed = max(self.velocity.length() - drop, 0.0)
+	if self.velocity.length() > 0: new_speed /= self.velocity.length()
+	self.velocity *= new_speed
+#		velocity.x = lerp(velocity.x, wish_dir.x * get_move_speed(), delta * (ground_accel)) #if grounded else acceleration / 4))
+#		velocity.z = lerp(velocity.z, wish_dir.z * get_move_speed(), delta * (ground_accel)) #if grounded else air_acceleration))
+	if Input.is_action_just_pressed("jump") || (Input.is_action_pressed("jump") && auto_jump_when_grounded): jump()
+
+func handle_air_movement(delta):
+	# Multi Jump
+	if jumps_remaining > 0 && Input.is_action_just_pressed("jump"): jump()
+	
+	# grav_buffer helps jumps reach higher while maintaining a strong gravitational pull for game feel.
+	if grav_buf_settler != 0.0 && Input.is_action_pressed("jump"):
+		velocity.y = clampf(velocity.y - (8 * ProjectSettings.get_setting("physics/3d/default_gravity") * delta) * clampf((0.01 / (grav_buf_settler / gravity_buffer)),0.001, 1.0), -TERMINAL_VELOCITY, velocity.y)
+	else:
+		velocity.y = clampf(velocity.y - (8 * ProjectSettings.get_setting("physics/3d/default_gravity") * delta), -TERMINAL_VELOCITY, velocity.y)
+	grav_buf_settler = clampf(grav_buf_settler - delta, 0, grav_buf_settler)
+	rising = velocity.y > 0
+	
+	# CS Surf
+	var cur_speed_in_wish_dir = velocity.dot(wish_dir)
+	var capped_speed = min((surf_air_move_speed * wish_dir).length(), surf_air_cap)
+	var add_speed_till_cap = capped_speed - cur_speed_in_wish_dir
+	if add_speed_till_cap > 0:
+		var accel_speed = surf_air_accel * surf_air_move_speed * delta
+		accel_speed = min(accel_speed, add_speed_till_cap)
+		velocity += accel_speed * wish_dir
+	if is_on_wall():
+		if !is_surface_too_steep(get_wall_normal()): self.motion_mode = CharacterBody3D.MOTION_MODE_GROUNDED
+		else: self.motion_mode = CharacterBody3D.MOTION_MODE_FLOATING
+		clip_velocity(get_wall_normal(), 1.0, delta)
 
 func get_move_speed() -> float:
 	var final_speed = walk_speed
@@ -418,43 +510,66 @@ func handle_crouch(delta: float) -> void:
 func push_away_rigid_bodies():
 	for i in get_slide_collision_count():
 		var c := get_slide_collision(i)
-		var pushbox_detect = false
-		for j in %pushbox.get_child_count():
-			if c.get_local_shape(i) == %pushbox || c.get_local_shape(i) == %pushbox.get_child(j):
-				pushbox_detect = true
-				break
-		if !pushbox_detect: return
-		if c.get_collider() is RigidBody3D:
+		#var pushbox_detect = false
+		#for j in %pushbox.get_child_count():
+			#if c.get_local_shape(i) == %pushbox || c.get_local_shape(i) == %pushbox.get_child(j):
+				#pushbox_detect = true
+				#print("pushbox detected as used on prop push")
+				#break
+		#if !pushbox_detect: return
+		var prop = c.get_collider()
+		if prop is RigidBody3D:
 			var push_dir = -c.get_normal()
-			var velocity_diff_in_push_dir = self.velocity.dot(push_dir) - c.get_collider().linear_velocity.dot(push_dir)
+			var velocity_diff_in_push_dir = self.velocity.dot(push_dir) - prop.linear_velocity.dot(push_dir)
 			velocity_diff_in_push_dir = max(0.0, velocity_diff_in_push_dir)
 			var MY_APPROX_MASS_KG = 80.0
-			var mass_ratio = min(1.0, MY_APPROX_MASS_KG / c.get_collider().mass)
+			var mass_ratio = min(1.0, MY_APPROX_MASS_KG / c.prop.mass)
 			push_dir.y = 0
 			var push_force = mass_ratio * 5.0
-			c.get_collider().apply_impulse(push_dir * velocity_diff_in_push_dir * push_force, c.get_position() - c.get_collider().global_position)
+			prop.apply_impulse(push_dir * velocity_diff_in_push_dir * push_force, c.get_position() - c.prop.global_position)
 
+
+#endregion
+#region UI
+
+## Generates a UI for the player, should only need to run once after the player loads but just in case
+func add_hud_to_player():
+	if !hud_ref:
+		hud_ref = preloaded_hud.instantiate()
+		add_child(hud_ref)
+		hud_ref.show()
+		hud_ref.connect("activate_telepoint", teleport)
+		connect("collect_pickup", track_pickups)
+		connect("toggle_debug_menu", hud_ref.toggle_debug_menu)
+
+func track_pickups(type_name:String="dust",changing_value:int=1) -> void:
+	AudioManager.play("click-snaps.wav", "SFX")
+	player_save_data = {"entry_name": type_name, "entry_change_value": changing_value}
+	if ! hud_ref.track_player_pickup(type_name, changing_value):
+		print("HUD found no UI to track pickup: " + str(type_name))
 
 #endregion
 #region Debugging
 
+## Will return the same bool value as noclip, directly manipulates global_position
 func handle_noclip(delta) -> bool:
 	$CollisionShape3D.disabled = noclip
 	if not noclip:
 		return false
 	
-	var speed = get_move_speed() * noclip_base_speed_mult
+	var noclip_speed = get_move_speed() * noclip_base_speed_mult
 	if Input.is_action_pressed("sprint"):
-		speed *= 3.0
+		noclip_speed *= noclip_sprint_mult
 	
-	self.velocity = cam_aligned_wish_dir * speed
+	self.velocity = desired_move_vector * noclip_speed
 	global_position += self.velocity * delta
 	
 	return true
 
-func on_telepoint_activated(telepoint_position) -> void:
+## Simple global teleport
+func teleport(teleport_point) -> void:
 	velocity = Vector3.ZERO
-	global_position = telepoint_position
+	global_position = teleport_point
 
 #endregion
 

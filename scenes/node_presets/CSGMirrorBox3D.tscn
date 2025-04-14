@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbhy2v0n25u7d"]
+
+[ext_resource type="Script" uid="uid://dsxy8aca3q0su" path="res://scripts/mirror.gd" id="1_3ighk"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_3ighk"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h4hee"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_3ighk")
+roughness = 0.36
+
+[node name="CSGBox3D" type="CSGBox3D" node_paths=PackedStringArray("mirror_subviewport", "node3d_camera_root")]
+size = Vector3(2.5, 3.5, 0.001)
+material = SubResource("StandardMaterial3D_h4hee")
+script = ExtResource("1_3ighk")
+mirror_subviewport = NodePath("SubViewport")
+node3d_camera_root = NodePath("SubViewport/Node3D")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(1024, 1432)
+render_target_update_mode = 0
+
+[node name="Node3D" type="Node3D" parent="SubViewport"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -12.8577, 2.18985, 1.09171)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport/Node3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0245645)
+near = 0.1

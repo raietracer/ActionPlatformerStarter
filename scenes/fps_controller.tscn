@@ -94,7 +94,8 @@ radial_segments = 10
 rings = 4
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_106wt"]
-height = 1.5
+height = 2.4
+radius = 1.0
 
 [node name="player_actor" type="CharacterBody3D"]
 collision_layer = 138
@@ -218,7 +219,7 @@ platform_on_leave = 2
 platform_floor_layers = 4278190080
 
 [node name="pushbox_col" type="CollisionShape3D" parent="pushbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 shape = SubResource("CylinderShape3D_106wt")
 
 [editable path="Meshes/sword_handle/broad_sword"]
