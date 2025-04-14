@@ -1,0 +1,19 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://dwsrb7m5f0u3o"]
+
+[ext_resource type="Texture2D" uid="uid://bfoxoj3l1nw60" path="res://assets/environments/type_e/crystal.png" id="1_0plo2"]
+[ext_resource type="Texture2D" uid="uid://ymp1mc4761ji" path="res://assets/environments/rough_transparent.png" id="2_yvhmj"]
+
+[resource]
+albedo_color = Color(0.913725, 1, 0.960784, 0.960784)
+albedo_texture = ExtResource("1_0plo2")
+metallic = 0.3
+metallic_specular = 0.69
+rim_enabled = true
+rim = 0.33
+rim_tint = 0.39
+rim_texture = ExtResource("2_yvhmj")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+distance_fade_min_distance = 0.25
+distance_fade_max_distance = 2.0

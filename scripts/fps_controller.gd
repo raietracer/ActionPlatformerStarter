@@ -152,7 +152,7 @@ var noclip := false
 var input_dir := Vector2.ZERO
 var wish_dir := Vector3.ZERO
 
-@onready var preloaded_hud = preload("res://scenes/hud_canvas.tscn")
+@onready var preloaded_hud = preload("res://scenes/gui/hud_canvas.tscn")
 var hud_ref = null
 var debug_menu = null
 signal toggle_debug_menu

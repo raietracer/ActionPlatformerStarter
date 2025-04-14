@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://7wooqiemmtnh"]
+
+[ext_resource type="Texture2D" uid="uid://b0idi4yw5yegf" path="res://assets/environments/chain link fence square.png" id="1_8i4ft"]
+
+[resource]
+transparency = 1
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_8i4ft")
+uv1_scale = Vector3(10, 10, 10)
+uv1_triplanar = true
+uv1_world_triplanar = true
+proximity_fade_distance = 0.01
+distance_fade_mode = 1
+distance_fade_min_distance = 30.0

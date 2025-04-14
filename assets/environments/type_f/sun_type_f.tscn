@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://b1vwv5tng6brr"]
+
+[node name="sun_type_f" type="DirectionalLight3D"]
+transform = Transform3D(-0.406737, -0.834565, 0.371572, 0, 0.406737, 0.913545, -0.913545, 0.371572, -0.165435, 0, 0, 0)
+light_color = Color(1, 0.718423, 0.674139, 1)
+shadow_enabled = true
+directional_shadow_max_distance = 1000.0

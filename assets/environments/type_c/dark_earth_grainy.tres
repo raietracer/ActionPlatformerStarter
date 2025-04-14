@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dgg6uy33iacps"]
+
+[ext_resource type="Texture2D" uid="uid://cunf7y6yixcsh" path="res://assets/environments/type_c/leather.png" id="1_5p3r8"]
+
+[resource]
+albedo_texture = ExtResource("1_5p3r8")
+metallic = 0.32
+metallic_specular = 0.0
+uv1_scale = Vector3(0.01, 0.01, 0.01)
+uv1_triplanar = true
+uv1_world_triplanar = true

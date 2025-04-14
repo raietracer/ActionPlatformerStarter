@@ -1,0 +1,533 @@
+[gd_scene load_steps=10 format=3 uid="uid://dquimy7b0ajih"]
+
+[ext_resource type="Script" uid="uid://dvdkeqpgq75il" path="res://scripts/gui/hud_canvas.gd" id="1_hb5k4"]
+[ext_resource type="FontFile" uid="uid://bj5o3mnxhftwk" path="res://assets/theme/verdana.ttf" id="2_2d6ei"]
+[ext_resource type="Texture2D" uid="uid://bcamajpo6x2er" path="res://assets/sprites/play_button.tres" id="3_8sbxb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ernrk"]
+bg_color = Color(0.08, 0.08, 0.08, 0.121569)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_right = 4
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_031qo"]
+bg_color = Color(0.08, 0.08, 0.08, 0.588235)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+border_color = Color(0, 0, 0, 0.654902)
+border_blend = true
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bakel"]
+bg_color = Color(0.08, 0.08, 0.08, 0.588235)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.53, 0.53, 0.53, 0.796078)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x34wt"]
+bg_color = Color(0.08, 0.08, 0.08, 0.588235)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.54, 0.54, 0.54, 0.819608)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eayai"]
+draw_center = false
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 0.623529)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kjpnj"]
+bg_color = Color(0.08, 0.08, 0.08, 0.360784)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(0, 0, 0, 0.054902)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="hud_canvas" type="CanvasLayer"]
+script = ExtResource("1_hb5k4")
+
+[node name="row_2_margin" type="MarginContainer" parent="."]
+offset_right = 110.0
+offset_bottom = 20.0
+mouse_filter = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+
+[node name="Panel" type="Panel" parent="row_2_margin"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ernrk")
+
+[node name="MarginContainer" type="MarginContainer" parent="row_2_margin"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="row_2_margin/MarginContainer"]
+layout_mode = 2
+
+[node name="debug_fps_display" type="Label" parent="row_2_margin/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.901045, 0.901045, 0.901045, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("2_2d6ei")
+theme_override_font_sizes/font_size = 12
+text = "60 FPS VSync ON"
+
+[node name="volume_label" type="Label" parent="row_2_margin/MarginContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.901045, 0.901045, 0.901045, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("2_2d6ei")
+theme_override_font_sizes/font_size = 12
+text = "Volume"
+horizontal_alignment = 1
+
+[node name="global_bgm_volume" type="HSlider" parent="row_2_margin/MarginContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+max_value = 2.0
+step = 0.1
+page = 0.1
+value = 0.8
+tick_count = 5
+ticks_on_borders = true
+
+[node name="DebugPanel" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -260.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 136.0
+grow_horizontal = 0
+mouse_filter = 2
+
+[node name="debug_bg" type="Panel" parent="DebugPanel"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_031qo")
+
+[node name="margin" type="MarginContainer" parent="DebugPanel"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="column" type="VBoxContainer" parent="DebugPanel/margin"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="row_1_margin" type="MarginContainer" parent="DebugPanel/margin/column"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="debug_title" type="Label" parent="DebugPanel/margin/column/row_1_margin"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.646752, 0.646752, 0.646752, 1)
+theme_override_font_sizes/font_size = 20
+text = "DEBUG MENU"
+horizontal_alignment = 1
+
+[node name="teleporter_margin" type="MarginContainer" parent="DebugPanel/margin/column"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="vbox" type="VBoxContainer" parent="DebugPanel/margin/column/teleporter_margin"]
+layout_mode = 2
+
+[node name="teleporter_label" type="Label" parent="DebugPanel/margin/column/teleporter_margin/vbox"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 12
+text = "Teleporter"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="row" type="HBoxContainer" parent="DebugPanel/margin/column/teleporter_margin/vbox"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 2
+
+[node name="debug_tp_selector" type="OptionButton" parent="DebugPanel/margin/column/teleporter_margin/vbox/row"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_font_sizes/font_size = 12
+alignment = 2
+selected = 0
+item_count = 1
+popup/item_0/text = "0"
+popup/item_0/id = 0
+
+[node name="debug_tp_button" type="Button" parent="DebugPanel/margin/column/teleporter_margin/vbox/row"]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 12
+text = "Go"
+
+[node name="HSeparator2" type="HSeparator" parent="DebugPanel/margin/column"]
+layout_mode = 2
+
+[node name="music_player_margin" type="MarginContainer" parent="DebugPanel/margin/column"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="vbox" type="VBoxContainer" parent="DebugPanel/margin/column/music_player_margin"]
+layout_mode = 2
+
+[node name="music_player_label" type="Label" parent="DebugPanel/margin/column/music_player_margin/vbox"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 12
+text = "Music Player"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="row" type="HBoxContainer" parent="DebugPanel/margin/column/music_player_margin/vbox"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 2
+
+[node name="music_list" type="OptionButton" parent="DebugPanel/margin/column/music_player_margin/vbox/row"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_font_sizes/font_size = 12
+alignment = 2
+text_overrun_behavior = 3
+clip_text = true
+
+[node name="play_button" type="Button" parent="DebugPanel/margin/column/music_player_margin/vbox/row"]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 12
+icon = ExtResource("3_8sbxb")
+icon_alignment = 1
+expand_icon = true
+
+[node name="HSeparator3" type="HSeparator" parent="DebugPanel/margin/column"]
+layout_mode = 2
+
+[node name="tracker_margin" type="MarginContainer" parent="DebugPanel/margin/column"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="vbox" type="VBoxContainer" parent="DebugPanel/margin/column/tracker_margin"]
+layout_mode = 2
+
+[node name="trackers_title_button" type="Button" parent="DebugPanel/margin/column/tracker_margin/vbox"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 0
+focus_mode = 0
+theme_override_colors/font_pressed_color = Color(0.909491, 0.983404, 2.31028e-06, 1)
+theme_override_font_sizes/font_size = 16
+toggle_mode = true
+text = "[ Show Trackers ]"
+
+[node name="Trackers" type="VBoxContainer" parent="DebugPanel/margin/column/tracker_margin/vbox"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="afk_margin" type="MarginContainer" parent="DebugPanel/margin/column/tracker_margin/vbox/Trackers"]
+layout_mode = 2
+
+[node name="Panel2" type="Panel" parent="DebugPanel/margin/column/tracker_margin/vbox/Trackers/afk_margin"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bakel")
+
+[node name="afk_timer" type="HBoxContainer" parent="DebugPanel/margin/column/tracker_margin/vbox/Trackers/afk_margin"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="afk_timer_tracker" type="Label" parent="DebugPanel/margin/column/tracker_margin/vbox/Trackers/afk_margin/afk_timer"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+text = "0"
+horizontal_alignment = 2
+
+[node name="debug_tp_button" type="Label" parent="DebugPanel/margin/column/tracker_margin/vbox/Trackers/afk_margin/afk_timer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+text = "Frames AFK"
+
+[node name="MarginContainer" type="MarginContainer" parent="DebugPanel/margin/column/tracker_margin/vbox/Trackers"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="DebugPanel/margin/column/tracker_margin/vbox/Trackers/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x34wt")
+
+[node name="MarginContainer" type="MarginContainer" parent="DebugPanel/margin/column/tracker_margin/vbox/Trackers/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_right = 6
+
+[node name="velocity" type="VBoxContainer" parent="DebugPanel/margin/column/tracker_margin/vbox/Trackers/MarginContainer/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="DebugPanel/margin/column/tracker_margin/vbox/Trackers/MarginContainer/MarginContainer/velocity"]
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_eayai")
+text = "Velocity Vector"
+horizontal_alignment = 1
+
+[node name="vertical_tracker" type="VBoxContainer" parent="DebugPanel/margin/column/tracker_margin/vbox/Trackers/MarginContainer/MarginContainer/velocity"]
+layout_mode = 2
+theme_override_constants/separation = -6
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DebugPanel/margin/column/tracker_margin/vbox/Trackers/MarginContainer/MarginContainer/velocity/vertical_tracker"]
+layout_mode = 2
+
+[node name="velocity_x_tracker" type="Label" parent="DebugPanel/margin/column/tracker_margin/vbox/Trackers/MarginContainer/MarginContainer/velocity/vertical_tracker/HBoxContainer"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.96, 0.3744, 0.40368, 1)
+text = "0"
+horizontal_alignment = 1
+
+[node name="velocity_y_tracker" type="Label" parent="DebugPanel/margin/column/tracker_margin/vbox/Trackers/MarginContainer/MarginContainer/velocity/vertical_tracker/HBoxContainer"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.58249, 0.93, 0.3813, 1)
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="velocity_z_tracker" type="Label" parent="DebugPanel/margin/column/tracker_margin/vbox/Trackers/MarginContainer/MarginContainer/velocity/vertical_tracker/HBoxContainer"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.342, 0.5652, 0.9, 1)
+text = "0"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="DebugPanel/margin/column/tracker_margin/vbox/Trackers/MarginContainer/MarginContainer/velocity/vertical_tracker"]
+layout_mode = 2
+
+[node name="x_label" type="Label" parent="DebugPanel/margin/column/tracker_margin/vbox/Trackers/MarginContainer/MarginContainer/velocity/vertical_tracker/HBoxContainer2"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.96, 0.3744, 0.40368, 1)
+theme_override_font_sizes/font_size = 12
+text = "X"
+horizontal_alignment = 1
+
+[node name="y_label" type="Label" parent="DebugPanel/margin/column/tracker_margin/vbox/Trackers/MarginContainer/MarginContainer/velocity/vertical_tracker/HBoxContainer2"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.58249, 0.93, 0.3813, 1)
+theme_override_font_sizes/font_size = 12
+text = "Y"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="z_label" type="Label" parent="DebugPanel/margin/column/tracker_margin/vbox/Trackers/MarginContainer/MarginContainer/velocity/vertical_tracker/HBoxContainer2"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.342, 0.5652, 0.9, 1)
+theme_override_font_sizes/font_size = 12
+text = "Z"
+horizontal_alignment = 1
+
+[node name="total_row" type="HBoxContainer" parent="DebugPanel/margin/column/tracker_margin/vbox/Trackers/MarginContainer/MarginContainer/velocity"]
+layout_mode = 2
+
+[node name="velocity_length_label" type="Label" parent="DebugPanel/margin/column/tracker_margin/vbox/Trackers/MarginContainer/MarginContainer/velocity/total_row"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_eayai")
+text = "Total:"
+horizontal_alignment = 2
+
+[node name="velocity_length_tracker" type="Label" parent="DebugPanel/margin/column/tracker_margin/vbox/Trackers/MarginContainer/MarginContainer/velocity/total_row"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_eayai")
+text = "0"
+horizontal_alignment = 1
+
+[node name="transverse_row" type="HBoxContainer" parent="DebugPanel/margin/column/tracker_margin/vbox/Trackers/MarginContainer/MarginContainer/velocity"]
+layout_mode = 2
+
+[node name="velocity_transverse_label" type="Label" parent="DebugPanel/margin/column/tracker_margin/vbox/Trackers/MarginContainer/MarginContainer/velocity/transverse_row"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_eayai")
+text = "Transverse:"
+horizontal_alignment = 2
+
+[node name="velocity_transverse_tracker" type="Label" parent="DebugPanel/margin/column/tracker_margin/vbox/Trackers/MarginContainer/MarginContainer/velocity/transverse_row"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_eayai")
+text = "0"
+horizontal_alignment = 1
+
+[node name="PickupTrackers" type="MarginContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.99
+anchor_top = 0.99
+anchor_right = 0.99
+anchor_bottom = 0.99
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Panel" type="Panel" parent="PickupTrackers"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kjpnj")
+
+[node name="margin" type="MarginContainer" parent="PickupTrackers"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="column" type="VBoxContainer" parent="PickupTrackers/margin"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="row_1" type="HBoxContainer" parent="PickupTrackers/margin/column"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="dust_tracker" type="Label" parent="PickupTrackers/margin/column/row_1"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.693307, 0.693307, 0.693307, 1)
+theme_override_fonts/font = ExtResource("2_2d6ei")
+text = "0"
+horizontal_alignment = 2
+
+[node name="debug_title" type="Label" parent="PickupTrackers/margin/column/row_1"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.693307, 0.693307, 0.693307, 1)
+theme_override_fonts/font = ExtResource("2_2d6ei")
+text = "dust"
+
+[node name="row_2" type="HBoxContainer" parent="PickupTrackers/margin/column"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="coin_tracker" type="Label" parent="PickupTrackers/margin/column/row_2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.693307, 0.693307, 0.693307, 1)
+theme_override_fonts/font = ExtResource("2_2d6ei")
+text = "0"
+horizontal_alignment = 2
+
+[node name="debug_fps_display" type="Label" parent="PickupTrackers/margin/column/row_2"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.693307, 0.693307, 0.693307, 1)
+theme_override_fonts/font = ExtResource("2_2d6ei")
+text = "coins"
+
+[connection signal="value_changed" from="row_2_margin/MarginContainer/VBoxContainer/global_bgm_volume" to="." method="_on_global_vol_slider_changed"]
+[connection signal="item_selected" from="DebugPanel/margin/column/teleporter_margin/vbox/row/debug_tp_selector" to="." method="_on_select_telepoint"]
+[connection signal="pressed" from="DebugPanel/margin/column/teleporter_margin/vbox/row/debug_tp_button" to="." method="_on_telepoint_tp"]
+[connection signal="item_selected" from="DebugPanel/margin/column/music_player_margin/vbox/row/music_list" to="." method="_on_select_song"]
+[connection signal="pressed" from="DebugPanel/margin/column/music_player_margin/vbox/row/play_button" to="." method="_on_music_player_play_button_pressed"]
+[connection signal="toggled" from="DebugPanel/margin/column/tracker_margin/vbox/trackers_title_button" to="." method="_on_toggle_trackers_display"]

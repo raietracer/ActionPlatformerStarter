@@ -1,0 +1,2267 @@
+[gd_scene load_steps=120 format=3 uid="uid://c253pkc4w1qog"]
+
+[ext_resource type="Environment" uid="uid://bsjkm067crf3" path="res://assets/environments/type_e/environment_type_e.tres" id="1_l6ejs"]
+[ext_resource type="PackedScene" uid="uid://cwujtlrcn7lxw" path="res://assets/environments/type_a/sun_type_a.tscn" id="2_xdcg3"]
+[ext_resource type="PackedScene" uid="uid://dknogpu0u04ci" path="res://assets/environments/type_b/sun_type_b.tscn" id="3_0anml"]
+[ext_resource type="PackedScene" uid="uid://ctkp0gu28j0gn" path="res://assets/environments/type_c/sun_type_c.tscn" id="4_ym724"]
+[ext_resource type="PackedScene" uid="uid://dy3wrew13ftys" path="res://assets/environments/type_d/sun_type_d.tscn" id="5_qfsrb"]
+[ext_resource type="PackedScene" uid="uid://c26hjmj7pyemd" path="res://assets/environments/type_e/sun_type_e.tscn" id="6_kptwe"]
+[ext_resource type="PackedScene" uid="uid://b1vwv5tng6brr" path="res://assets/environments/type_f/sun_type_f.tscn" id="7_glaeg"]
+[ext_resource type="Texture2D" uid="uid://ymp1mc4761ji" path="res://assets/environments/rough_transparent.png" id="8_nlt17"]
+[ext_resource type="Material" uid="uid://7wooqiemmtnh" path="res://assets/environments/world_bounds_fence.tres" id="9_8jyaf"]
+[ext_resource type="Material" uid="uid://boblkngjtp702" path="res://assets/environments/type_b/lush_earth_dirty.tres" id="10_jph8u"]
+[ext_resource type="Material" uid="uid://dgg6uy33iacps" path="res://assets/environments/type_c/dark_earth_grainy.tres" id="11_uh7p2"]
+[ext_resource type="Material" uid="uid://dvnxrfxgye3r7" path="res://assets/environments/type_c/dark_earth_muddy.tres" id="12_trntg"]
+[ext_resource type="Texture2D" uid="uid://b85u3bu2x3el8" path="res://assets/environments/type_f/magma.png" id="13_b4eud"]
+[ext_resource type="Texture2D" uid="uid://cfj2y1r56n7x6" path="res://assets/environments/type_b/grass.png" id="14_r7uqm"]
+[ext_resource type="PackedScene" uid="uid://da8ck5chi6l4k" path="res://scenes/fps_controller.tscn" id="15_jmuim"]
+[ext_resource type="Texture2D" uid="uid://bfoxoj3l1nw60" path="res://assets/environments/type_e/crystal.png" id="16_mnrwm"]
+[ext_resource type="Script" uid="uid://dsxy8aca3q0su" path="res://scripts/node_extensions/CSGMirrorBox3D.gd" id="17_llxhu"]
+[ext_resource type="PackedScene" uid="uid://dloujssolwmy6" path="res://scenes/node_presets/bobbing_coin.tscn" id="18_dm5b1"]
+[ext_resource type="PackedScene" uid="uid://da3xm0kdry8qj" path="res://scenes/node_presets/physics_coin.tscn" id="19_1pi3u"]
+[ext_resource type="Texture2D" uid="uid://cin6mnt6e1cbh" path="res://assets/environments/rough texture.png" id="20_34clr"]
+[ext_resource type="Material" uid="uid://bgk1nk5k13uty" path="res://assets/environments/type_b/worn_stone_wall.tres" id="21_p7isv"]
+[ext_resource type="Material" uid="uid://nw3yrarnujvw" path="res://assets/environments/type_d/stale_badlands_ground.tres" id="22_4fdyg"]
+[ext_resource type="Material" uid="uid://cqqc31pcpovmb" path="res://assets/environments/type_c/prickly_dirt_ground.tres" id="23_ebrdb"]
+[ext_resource type="Texture2D" uid="uid://cunf7y6yixcsh" path="res://assets/environments/type_c/leather.png" id="24_mo2dx"]
+[ext_resource type="Material" uid="uid://dwsrb7m5f0u3o" path="res://assets/environments/type_e/crystal_ground.tres" id="25_h81t8"]
+[ext_resource type="Texture2D" uid="uid://d2mgkuygx7k2l" path="res://assets/environments/type_d/snow.png" id="26_oxuhs"]
+[ext_resource type="Material" uid="uid://dfrucxn3txg6j" path="res://assets/environments/type_b/lilypad_b.tres" id="27_d21lx"]
+[ext_resource type="Material" uid="uid://ujhkfjw4t813" path="res://assets/environments/type_b/lilypad_c.tres" id="28_msivq"]
+[ext_resource type="Texture2D" uid="uid://of3f7ym0f0yy" path="res://assets/environments/water.png" id="29_g2fwx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h65es"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 1)
+albedo_texture = ExtResource("8_nlt17")
+
+[sub_resource type="BoxMesh" id="BoxMesh_fyo0m"]
+material = SubResource("StandardMaterial3D_h65es")
+size = Vector3(5000, 1000, 5000)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xsv0n"]
+material = ExtResource("9_8jyaf")
+size = Vector3(3000, 600, 3000)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ms22y"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ra31b"]
+material = SubResource("StandardMaterial3D_ms22y")
+
+[sub_resource type="BoxMesh" id="BoxMesh_hmb3j"]
+material = ExtResource("10_jph8u")
+size = Vector3(3000, 600, 3000)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s75cg"]
+material = ExtResource("10_jph8u")
+size = Vector3(3000, 200, 3000)
+
+[sub_resource type="SphereMesh" id="SphereMesh_akssu"]
+material = ExtResource("11_uh7p2")
+radius = 1500.0
+height = 250.0
+rings = 64
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_21xp1"]
+material = ExtResource("12_trntg")
+top_radius = 0.0
+bottom_radius = 2000.0
+height = 125.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_vbiq3"]
+size = Vector3(4000, 200, 4000)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ikqbo"]
+size = Vector3(3000, 200, 3000)
+
+[sub_resource type="PrismMesh" id="PrismMesh_a7kbb"]
+material = ExtResource("12_trntg")
+size = Vector3(550, 320, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_abjlc"]
+albedo_color = Color(0.301868, 0.603378, 0.765846, 1)
+albedo_texture = ExtResource("13_b4eud")
+uv1_scale = Vector3(0.05, 0.05, 0.05)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 0.366025
+uv1_world_triplanar = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_e7iyd"]
+material = SubResource("StandardMaterial3D_abjlc")
+top_radius = 1.0
+bottom_radius = 43.0
+height = 70.0
+
+[sub_resource type="PrismMesh" id="PrismMesh_nqvgl"]
+material = SubResource("StandardMaterial3D_abjlc")
+size = Vector3(80, 50, 200)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t6pef"]
+albedo_texture = ExtResource("14_r7uqm")
+
+[sub_resource type="BoxMesh" id="BoxMesh_aciha"]
+material = SubResource("StandardMaterial3D_t6pef")
+size = Vector3(40, 21, 80)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bigbh"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.486275)
+albedo_texture = ExtResource("16_mnrwm")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_i82mu"]
+viewport_path = NodePath("debug_level/GameElements/QuickMirror/Mirror/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_omn3j"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_i82mu")
+roughness = 0.36
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_mnkqi"]
+viewport_path = NodePath("debug_level/GameElements/QuickMirror/Mirror/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vnno7"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_mnkqi")
+roughness = 0.36
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ncaya"]
+transparency = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nqvgl"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.258824)
+albedo_texture = ExtResource("20_34clr")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 2.63902
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_cmckk"]
+material = ExtResource("21_p7isv")
+top_radius = 0.3
+bottom_radius = 0.3
+height = 26.0
+radial_segments = 4
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wnm7q"]
+material = ExtResource("22_4fdyg")
+top_radius = 1.5
+bottom_radius = 1.65
+height = 0.1
+
+[sub_resource type="BoxMesh" id="BoxMesh_1fkf5"]
+material = ExtResource("23_ebrdb")
+size = Vector3(20, 20, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t1exr"]
+albedo_color = Color(1, 0.9835, 0.89, 0.960784)
+albedo_texture = ExtResource("24_mo2dx")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_fieu7"]
+material = SubResource("StandardMaterial3D_t1exr")
+size = Vector3(22, 4, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bigbh"]
+material = SubResource("StandardMaterial3D_t1exr")
+size = Vector3(22, 3, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dq34n"]
+albedo_color = Color(1, 0.9835, 0.89, 0.960784)
+albedo_texture = ExtResource("24_mo2dx")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_d0iq4"]
+material = SubResource("StandardMaterial3D_dq34n")
+size = Vector3(22, 2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n8kgl"]
+albedo_color = Color(1, 0.9835, 0.89, 0.960784)
+albedo_texture = ExtResource("24_mo2dx")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_fqnl1"]
+material = SubResource("StandardMaterial3D_n8kgl")
+size = Vector3(22, 1, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uumii"]
+material = ExtResource("25_h81t8")
+size = Vector3(12, 0.5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yfb36"]
+material = ExtResource("25_h81t8")
+size = Vector3(2, 0.1, 8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wnm7q"]
+material = ExtResource("25_h81t8")
+size = Vector3(0.2, 0.5, 6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_n8kgl"]
+material = ExtResource("25_h81t8")
+size = Vector3(12, 1, 8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dq34n"]
+material = ExtResource("25_h81t8")
+size = Vector3(12, 2, 8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8puai"]
+material = ExtResource("25_h81t8")
+size = Vector3(2, 0.5, 6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gv2x6"]
+material = ExtResource("25_h81t8")
+size = Vector3(2, 0.5, 6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8qey6"]
+material = ExtResource("25_h81t8")
+size = Vector3(12, 8, 8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_t1exr"]
+material = ExtResource("25_h81t8")
+size = Vector3(12, 3, 8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_32m5s"]
+material = ExtResource("25_h81t8")
+size = Vector3(12, 4, 8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fqnl1"]
+albedo_color = Color(0.946, 0.91, 1, 0.960784)
+albedo_texture = ExtResource("26_oxuhs")
+uv1_triplanar_sharpness = 29.4218
+uv1_world_triplanar = true
+distance_fade_min_distance = 0.25
+distance_fade_max_distance = 1.0
+
+[sub_resource type="PrismMesh" id="PrismMesh_stdua"]
+material = SubResource("StandardMaterial3D_fqnl1")
+left_to_right = 1.0
+size = Vector3(12, 2, 8)
+
+[sub_resource type="PrismMesh" id="PrismMesh_maodd"]
+material = SubResource("StandardMaterial3D_fqnl1")
+left_to_right = 1.0
+size = Vector3(12, 4, 8)
+
+[sub_resource type="PrismMesh" id="PrismMesh_yfb36"]
+material = SubResource("StandardMaterial3D_fqnl1")
+left_to_right = 1.0
+size = Vector3(12, 6, 8)
+
+[sub_resource type="PrismMesh" id="PrismMesh_uumii"]
+material = SubResource("StandardMaterial3D_fqnl1")
+left_to_right = 1.0
+size = Vector3(12, 8, 8)
+
+[sub_resource type="PrismMesh" id="PrismMesh_cebl7"]
+material = SubResource("StandardMaterial3D_fqnl1")
+left_to_right = 1.0
+size = Vector3(12, 10, 8)
+
+[sub_resource type="PrismMesh" id="PrismMesh_khno1"]
+material = SubResource("StandardMaterial3D_fqnl1")
+left_to_right = 1.0
+size = Vector3(12, 12, 8)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_yfb36"]
+material = ExtResource("22_4fdyg")
+top_radius = 1.0
+bottom_radius = 1.15
+height = 0.3
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_cebl7"]
+material = ExtResource("21_p7isv")
+top_radius = 0.3
+bottom_radius = 0.3
+height = 5.0
+radial_segments = 10
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_khno1"]
+material = ExtResource("21_p7isv")
+top_radius = 0.3
+bottom_radius = 0.3
+height = 8.0
+radial_segments = 10
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_onqnv"]
+material = ExtResource("21_p7isv")
+top_radius = 0.8
+bottom_radius = 1.0
+height = 16.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_au5bj"]
+material = ExtResource("21_p7isv")
+bottom_radius = 0.75
+height = 11.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mh3qq"]
+material = ExtResource("21_p7isv")
+top_radius = 0.3
+height = 12.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_kuync"]
+material = ExtResource("21_p7isv")
+top_radius = 0.1
+bottom_radius = 0.3
+height = 13.0
+
+[sub_resource type="PrismMesh" id="PrismMesh_is1fq"]
+material = SubResource("StandardMaterial3D_fqnl1")
+size = Vector3(40, 30, 80)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ncdai"]
+material = ExtResource("27_d21lx")
+top_radius = 1.5
+bottom_radius = 1.65
+height = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wnm7q"]
+albedo_color = Color(0.69608, 0.77, 0.2156, 1)
+metallic_specular = 0.73
+roughness = 0.33
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mjpix"]
+material = SubResource("StandardMaterial3D_wnm7q")
+top_radius = 1.5
+bottom_radius = 1.65
+height = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h8bdu"]
+albedo_color = Color(0.1462, 0.43, 0.21715, 1)
+metallic_specular = 0.73
+roughness = 0.33
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_td8rg"]
+material = SubResource("StandardMaterial3D_h8bdu")
+top_radius = 2.847
+bottom_radius = 3.005
+height = 0.127
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ktx8r"]
+material = ExtResource("21_p7isv")
+top_radius = 0.3
+bottom_radius = 0.3
+height = 40.0
+radial_segments = 4
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ud8sp"]
+material = ExtResource("21_p7isv")
+top_radius = 0.3
+bottom_radius = 0.3
+height = 30.0
+radial_segments = 4
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4cf5r"]
+material = ExtResource("28_msivq")
+top_radius = 2.847
+bottom_radius = 3.005
+height = 0.127
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ow684"]
+material = ExtResource("27_d21lx")
+top_radius = 6.0
+bottom_radius = 6.5
+height = 0.2
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_puves"]
+material = ExtResource("21_p7isv")
+top_radius = 0.3
+bottom_radius = 0.3
+height = 40.0
+radial_segments = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fthbk"]
+albedo_color = Color(0.69608, 0.77, 0.2156, 1)
+metallic_specular = 0.73
+roughness = 0.33
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gmy16"]
+material = SubResource("StandardMaterial3D_fthbk")
+top_radius = 2.847
+bottom_radius = 3.005
+height = 0.127
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8ocju"]
+material = SubResource("StandardMaterial3D_h8bdu")
+top_radius = 4.0
+bottom_radius = 4.5
+height = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iafbq"]
+transparency = 1
+albedo_color = Color(0.398531, 0.398531, 0.398531, 0.858824)
+albedo_texture = ExtResource("29_g2fwx")
+
+[sub_resource type="BoxMesh" id="BoxMesh_k18g4"]
+material = SubResource("StandardMaterial3D_iafbq")
+size = Vector3(39.9, 19.9, 79.9)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8puai"]
+material = ExtResource("22_4fdyg")
+top_radius = 10.0
+bottom_radius = 12.0
+height = 2.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gv2x6"]
+material = ExtResource("21_p7isv")
+top_radius = 0.3
+bottom_radius = 0.3
+height = 26.0
+radial_segments = 4
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8qey6"]
+material = ExtResource("21_p7isv")
+top_radius = 3.0
+bottom_radius = 1.0
+height = 30.0
+radial_segments = 10
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_iyhq1"]
+material = ExtResource("21_p7isv")
+top_radius = 3.0
+bottom_radius = 1.0
+height = 30.0
+radial_segments = 10
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_s4n3l"]
+material = ExtResource("21_p7isv")
+bottom_radius = 0.75
+height = 11.0
+radial_segments = 10
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qn78l"]
+material = ExtResource("21_p7isv")
+top_radius = 3.112
+bottom_radius = 3.312
+height = 1.0
+radial_segments = 10
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5vwqk"]
+material = ExtResource("21_p7isv")
+top_radius = 0.1
+bottom_radius = 0.3
+height = 18.0
+radial_segments = 10
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_26cs1"]
+material = ExtResource("21_p7isv")
+bottom_radius = 0.1
+height = 10.0
+radial_segments = 10
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_h8bdu"]
+material = ExtResource("21_p7isv")
+top_radius = 12.0
+bottom_radius = 1.0
+height = 160.0
+radial_segments = 32
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8puai"]
+albedo_texture = ExtResource("16_mnrwm")
+metallic_specular = 0.93
+roughness = 0.0
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+
+[sub_resource type="Curve3D" id="Curve3D_ktx8r"]
+_data = {
+"points": PackedVector3Array(0.012619, 0.650772, 145.547, -0.012619, -0.650772, -145.547, 0.440079, 1.6772, -0.264969, -0.0217972, -7.24882, 3.64879, 0.0217972, 7.24882, -3.64879, 0.128906, 53.6293, -176.204, -0.319862, -43.3141, 1.99217, 0.319862, 43.3141, -1.99217, 0.332214, 108.652, -188.487),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gv2x6"]
+albedo_color = Color(0.168119, 0.16812, 0.168119, 1)
+albedo_texture = ExtResource("20_34clr")
+metallic = 0.55
+metallic_specular = 0.2
+roughness = 0.45
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_iwmtt"]
+material = SubResource("StandardMaterial3D_gv2x6")
+top_radius = 24.0
+bottom_radius = 12.0
+height = 9.0
+radial_segments = 32
+
+[sub_resource type="PrismMesh" id="PrismMesh_psbkl"]
+material = SubResource("StandardMaterial3D_abjlc")
+size = Vector3(70, 38, 202.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mw6r1"]
+material = SubResource("StandardMaterial3D_abjlc")
+size = Vector3(21, 5, 36)
+
+[sub_resource type="SphereMesh" id="SphereMesh_iafbq"]
+material = SubResource("StandardMaterial3D_abjlc")
+radius = 50.0
+height = 55.5
+
+[node name="Overworld" type="Node3D"]
+
+[node name="GlobalPositioned" type="Node3D" parent="."]
+
+[node name="Environment" type="Node3D" parent="GlobalPositioned"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="GlobalPositioned/Environment"]
+environment = ExtResource("1_l6ejs")
+
+[node name="sun_type_a" parent="GlobalPositioned/Environment" instance=ExtResource("2_xdcg3")]
+visible = false
+
+[node name="sun_type_b" parent="GlobalPositioned/Environment" instance=ExtResource("3_0anml")]
+transform = Transform3D(-0.449319, 0.834592, -0.318699, 0, 0.356738, 0.934205, 0.893371, 0.419756, -0.160289, 0, 0, 0)
+visible = false
+
+[node name="sun_type_c" parent="GlobalPositioned/Environment" instance=ExtResource("4_ym724")]
+visible = false
+
+[node name="sun_type_d" parent="GlobalPositioned/Environment" instance=ExtResource("5_qfsrb")]
+transform = Transform3D(-0.707107, 0.110616, -0.698401, 0, 0.987688, 0.156435, 0.707107, 0.110616, -0.698401, 0, 0, 0)
+visible = false
+
+[node name="Sun_type_e" parent="GlobalPositioned/Environment" instance=ExtResource("6_kptwe")]
+transform = Transform3D(-0.612907, 0.470002, -0.635172, 0, 0.803857, 0.594823, 0.790155, 0.364571, -0.49269, 0, 0, 0)
+
+[node name="sun_type_f" parent="GlobalPositioned/Environment" instance=ExtResource("7_glaeg")]
+transform = Transform3D(-0.406737, -0.834565, 0.371573, 0, 0.406737, 0.913545, -0.913545, 0.371573, -0.165435, 0, 0, 0)
+visible = false
+
+[node name="WorldWalls" type="Node3D" parent="GlobalPositioned"]
+
+[node name="KillWall" type="CSGMesh3D" parent="GlobalPositioned/WorldWalls"]
+use_collision = true
+mesh = SubResource("BoxMesh_fyo0m")
+metadata/_edit_lock_ = true
+
+[node name="OuterBounds" type="CSGMesh3D" parent="GlobalPositioned/WorldWalls/KillWall"]
+operation = 2
+use_collision = true
+mesh = SubResource("BoxMesh_xsv0n")
+metadata/_edit_lock_ = true
+
+[node name="WorldGround" type="Node3D" parent="GlobalPositioned"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -350, 0)
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="GlobalPositioned/WorldGround"]
+use_collision = true
+mesh = SubResource("BoxMesh_ra31b")
+metadata/_edit_lock_ = true
+
+[node name="BoxGround" type="CSGMesh3D" parent="GlobalPositioned/WorldGround/CSGMesh3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 250, 0)
+use_collision = true
+mesh = SubResource("BoxMesh_hmb3j")
+metadata/_edit_lock_ = true
+
+[node name="AirSpace" type="CSGMesh3D" parent="GlobalPositioned/WorldGround/CSGMesh3D/BoxGround"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 200, 0)
+operation = 2
+mesh = SubResource("BoxMesh_s75cg")
+metadata/_edit_lock_ = true
+
+[node name="Mound" type="CSGMesh3D" parent="GlobalPositioned/WorldGround/CSGMesh3D/BoxGround"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0)
+mesh = SubResource("SphereMesh_akssu")
+metadata/_edit_lock_ = true
+
+[node name="Slope" type="CSGMesh3D" parent="GlobalPositioned/WorldGround/CSGMesh3D/BoxGround"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 162.5, 0)
+mesh = SubResource("CylinderMesh_21xp1")
+metadata/_edit_lock_ = true
+
+[node name="CutBox" type="CSGMesh3D" parent="GlobalPositioned/WorldGround/CSGMesh3D/BoxGround/Slope"]
+operation = 2
+mesh = SubResource("BoxMesh_vbiq3")
+metadata/_edit_lock_ = true
+
+[node name="CutBox" type="CSGMesh3D" parent="GlobalPositioned/WorldGround/CSGMesh3D/BoxGround/Slope/CutBox"]
+operation = 2
+mesh = SubResource("BoxMesh_ikqbo")
+metadata/_edit_lock_ = true
+
+[node name="pit_funnel_cutout_large" type="CSGMesh3D" parent="GlobalPositioned/WorldGround/CSGMesh3D/BoxGround/Slope"]
+transform = Transform3D(-0.718126, -0.695913, 3.04193e-08, 0, -4.37114e-08, -1, 0.695913, -0.718126, 3.13903e-08, 1309.91, -47.5, 1294.43)
+operation = 2
+mesh = SubResource("PrismMesh_a7kbb")
+metadata/_edit_lock_ = true
+
+[node name="pit_funnel_cutout" type="CSGMesh3D" parent="GlobalPositioned/WorldGround/CSGMesh3D/BoxGround"]
+transform = Transform3D(-0.718126, -0.695913, 3.04193e-08, 0, -4.37114e-08, -1, 0.695913, -0.718126, 3.13903e-08, 1222.85, 115, 1204.6)
+operation = 2
+mesh = SubResource("CylinderMesh_e7iyd")
+metadata/_edit_lock_ = true
+
+[node name="pit_ramps_cutout" type="CSGMesh3D" parent="GlobalPositioned/WorldGround/CSGMesh3D/BoxGround"]
+transform = Transform3D(-0.718126, -6.27806e-08, 0.695913, 8.74228e-08, -1, 0, 0.695913, 6.08387e-08, 0.718126, 1316.66, 75, 1301.4)
+operation = 2
+mesh = SubResource("PrismMesh_nqvgl")
+metadata/_edit_lock_ = true
+
+[node name="pond_cutout" type="CSGMesh3D" parent="GlobalPositioned/WorldGround/CSGMesh3D/BoxGround"]
+transform = Transform3D(-0.695913, 0, 0.718126, 0, 1, 0, -0.718126, 0, -0.695913, 1428.84, 90, 1417.17)
+operation = 2
+mesh = SubResource("BoxMesh_aciha")
+metadata/_edit_lock_ = true
+
+[node name="debug_level" type="Node3D" parent="."]
+transform = Transform3D(-0.695913, 0, 0.718126, 0, 1, 0, -0.718126, 0, -0.695913, 1453.2, 0, 1442.3)
+
+[node name="GameElements" type="Node3D" parent="debug_level"]
+
+[node name="Telepoints" type="Node3D" parent="debug_level/GameElements"]
+
+[node name="Spawn" type="Marker3D" parent="debug_level/GameElements/Telepoints" groups=["telepoint"]]
+transform = Transform3D(-0.173648, -0.254887, 0.951251, 0, 0.965926, 0.258819, -0.984808, 0.0449435, -0.167731, -8.5, 4, -2.25)
+
+[node name="Surf Pit" type="Marker3D" parent="debug_level/GameElements/Telepoints" groups=["telepoint"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 270, -5, 0)
+
+[node name="The Ramp" type="Marker3D" parent="debug_level/GameElements/Telepoints" groups=["telepoint"]]
+transform = Transform3D(-4.37114e-08, 0.642788, -0.766044, 0, 0.766044, 0.642788, 1, 2.80971e-08, -3.34849e-08, 0, 212, 0)
+
+[node name="CharacterBody3D" parent="debug_level/GameElements" instance=ExtResource("15_jmuim")]
+transform = Transform3D(-0.548133, 0, 0.836392, 0, 1, 0, -0.836392, 0, -0.548133, -10.2587, -7.15256e-07, -1.33547)
+
+[node name="QuickMirror" type="CSGBox3D" parent="debug_level/GameElements"]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -13, 2, 1)
+use_collision = true
+size = Vector3(3, 4, 0.05)
+material = SubResource("StandardMaterial3D_bigbh")
+
+[node name="Silverback" type="CSGBox3D" parent="debug_level/GameElements/QuickMirror"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+size = Vector3(2.5, 3.5, 0.01)
+material = SubResource("StandardMaterial3D_omn3j")
+
+[node name="Mirror" type="CSGBox3D" parent="debug_level/GameElements/QuickMirror" node_paths=PackedStringArray("mirror_subviewport", "node3d_camera_root")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.03)
+size = Vector3(2.5, 3.5, 0.001)
+material = SubResource("StandardMaterial3D_vnno7")
+script = ExtResource("17_llxhu")
+mirror_subviewport = NodePath("SubViewport")
+node3d_camera_root = NodePath("SubViewport/Node3D")
+metadata/_custom_type_script = "uid://dsxy8aca3q0su"
+
+[node name="SubViewport" type="SubViewport" parent="debug_level/GameElements/QuickMirror/Mirror"]
+size = Vector2i(1024, 1432)
+render_target_update_mode = 0
+
+[node name="Node3D" type="Node3D" parent="debug_level/GameElements/QuickMirror/Mirror/SubViewport"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1462.93, 2.31428, 1450.78)
+
+[node name="Camera3D" type="Camera3D" parent="debug_level/GameElements/QuickMirror/Mirror/SubViewport/Node3D"]
+near = 0.1
+
+[node name="Node3D" type="Node3D" parent="debug_level/GameElements/QuickMirror"]
+
+[node name="coin_groups" type="Node3D" parent="debug_level/GameElements"]
+
+[node name="pillar_circle" type="Node3D" parent="debug_level/GameElements/coin_groups"]
+
+[node name="BobbingCoin" parent="debug_level/GameElements/coin_groups/pillar_circle" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+
+[node name="BobbingCoin2" parent="debug_level/GameElements/coin_groups/pillar_circle" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -7.72729, 0, 2.07056)
+
+[node name="BobbingCoin3" parent="debug_level/GameElements/coin_groups/pillar_circle" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -6.92822, 0, 4.00006)
+
+[node name="BobbingCoin4" parent="debug_level/GameElements/coin_groups/pillar_circle" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -5.65698, 0, 5.65698)
+
+[node name="BobbingCoin5" parent="debug_level/GameElements/coin_groups/pillar_circle" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(0.5, 0, 0.866026, 0, 1, 0, -0.866026, 0, 0.5, -4, 0, 6.92822)
+
+[node name="BobbingCoin6" parent="debug_level/GameElements/coin_groups/pillar_circle" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, -2.07056, 0, 7.72754)
+
+[node name="BobbingCoin7" parent="debug_level/GameElements/coin_groups/pillar_circle" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(-8.9407e-08, 0, 1, 0, 1, 0, -1, 0, -8.9407e-08, 0, 0, 8.00006)
+
+[node name="BobbingCoin8" parent="debug_level/GameElements/coin_groups/pillar_circle" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, 2.07056, 0, 7.72742)
+
+[node name="BobbingCoin9" parent="debug_level/GameElements/coin_groups/pillar_circle" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, 4, 0, 6.92828)
+
+[node name="BobbingCoin10" parent="debug_level/GameElements/coin_groups/pillar_circle" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 5.65698, 0, 5.65692)
+
+[node name="BobbingCoin11" parent="debug_level/GameElements/coin_groups/pillar_circle" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(-0.866026, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866026, 6.92822, 0, 4.00006)
+
+[node name="BobbingCoin12" parent="debug_level/GameElements/coin_groups/pillar_circle" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 7.72742, 0, 2.07062)
+
+[node name="BobbingCoin13" parent="debug_level/GameElements/coin_groups/pillar_circle" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, 8, 0, 6.10352e-05)
+
+[node name="BobbingCoin14" parent="debug_level/GameElements/coin_groups/pillar_circle" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(-0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, -0.965926, 7.72729, 0, -2.07056)
+
+[node name="BobbingCoin15" parent="debug_level/GameElements/coin_groups/pillar_circle" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, 6.92822, 0, -3.99994)
+
+[node name="BobbingCoin16" parent="debug_level/GameElements/coin_groups/pillar_circle" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 5.65698, 0, -5.65698)
+
+[node name="BobbingCoin17" parent="debug_level/GameElements/coin_groups/pillar_circle" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(-0.5, 0, -0.866026, 0, 1, 0, 0.866026, 0, -0.5, 4, 0, -6.92822)
+
+[node name="BobbingCoin18" parent="debug_level/GameElements/coin_groups/pillar_circle" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 2.07056, 0, -7.72742)
+
+[node name="BobbingCoin19" parent="debug_level/GameElements/coin_groups/pillar_circle" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1.78814e-07, 0, -1, 0, 1, 0, 1, 0, 1.78814e-07, -0.000244141, 0, -8.00006)
+
+[node name="BobbingCoin20" parent="debug_level/GameElements/coin_groups/pillar_circle" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, -2.07056, 0, -7.72729)
+
+[node name="BobbingCoin21" parent="debug_level/GameElements/coin_groups/pillar_circle" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -4, 0, -6.92828)
+
+[node name="BobbingCoin22" parent="debug_level/GameElements/coin_groups/pillar_circle" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -5.65698, 0, -5.65692)
+
+[node name="BobbingCoin23" parent="debug_level/GameElements/coin_groups/pillar_circle" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(0.866026, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866026, -6.92822, 0, -4.00006)
+
+[node name="BobbingCoin24" parent="debug_level/GameElements/coin_groups/pillar_circle" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -7.72729, 0, -2.07068)
+
+[node name="pole_fall_lines" type="Node3D" parent="debug_level/GameElements/coin_groups"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 0, -49.9999)
+
+[node name="line_1" type="Node3D" parent="debug_level/GameElements/coin_groups/pole_fall_lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.10352e-05)
+
+[node name="BobbingCoin7" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_1" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+
+[node name="BobbingCoin8" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_1" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+
+[node name="BobbingCoin9" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_1" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+
+[node name="BobbingCoin10" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_1" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, 0)
+
+[node name="BobbingCoin11" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_1" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+
+[node name="BobbingCoin12" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_1" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 0)
+
+[node name="BobbingCoin13" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_1" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+
+[node name="BobbingCoin14" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_1" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 0)
+
+[node name="BobbingCoin15" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_1" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14, 0)
+
+[node name="BobbingCoin16" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_1" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0)
+
+[node name="BobbingCoin17" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_1" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16, 0)
+
+[node name="BobbingCoin18" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_1" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17, 0)
+
+[node name="BobbingCoin19" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_1" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18, 0)
+
+[node name="BobbingCoin20" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_1" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19, 0)
+
+[node name="BobbingCoin21" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_1" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
+
+[node name="BobbingCoin22" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_1" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21, 0)
+
+[node name="BobbingCoin23" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_1" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22, 0)
+
+[node name="BobbingCoin24" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_1" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23, 0)
+
+[node name="BobbingCoin25" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_1" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, 0)
+
+[node name="BobbingCoin26" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_1" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, 0)
+
+[node name="BobbingCoin27" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_1" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 26, 0)
+
+[node name="line_2" type="Node3D" parent="debug_level/GameElements/coin_groups/pole_fall_lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.00006)
+
+[node name="BobbingCoin7" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_2" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+
+[node name="BobbingCoin8" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_2" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+
+[node name="BobbingCoin9" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_2" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+
+[node name="BobbingCoin10" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_2" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, 0)
+
+[node name="BobbingCoin11" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_2" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+
+[node name="BobbingCoin12" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_2" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 0)
+
+[node name="BobbingCoin13" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_2" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+
+[node name="BobbingCoin14" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_2" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 0)
+
+[node name="BobbingCoin15" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_2" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14, 0)
+
+[node name="BobbingCoin16" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_2" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0)
+
+[node name="BobbingCoin17" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_2" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16, 0)
+
+[node name="BobbingCoin18" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_2" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17, 0)
+
+[node name="BobbingCoin19" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_2" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18, 0)
+
+[node name="BobbingCoin20" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_2" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19, 0)
+
+[node name="BobbingCoin21" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_2" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
+
+[node name="BobbingCoin22" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_2" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21, 0)
+
+[node name="BobbingCoin23" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_2" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22, 0)
+
+[node name="BobbingCoin24" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_2" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23, 0)
+
+[node name="BobbingCoin25" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_2" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, 0)
+
+[node name="BobbingCoin26" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_2" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, 0)
+
+[node name="BobbingCoin27" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_2" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 26, 0)
+
+[node name="line_3" type="Node3D" parent="debug_level/GameElements/coin_groups/pole_fall_lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -6.10352e-05)
+
+[node name="BobbingCoin7" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_3" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+
+[node name="BobbingCoin8" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_3" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+
+[node name="BobbingCoin9" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_3" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+
+[node name="BobbingCoin10" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_3" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, 0)
+
+[node name="BobbingCoin11" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_3" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+
+[node name="BobbingCoin12" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_3" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 0)
+
+[node name="BobbingCoin13" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_3" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+
+[node name="BobbingCoin14" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_3" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 0)
+
+[node name="BobbingCoin15" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_3" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14, 0)
+
+[node name="BobbingCoin16" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_3" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0)
+
+[node name="BobbingCoin17" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_3" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16, 0)
+
+[node name="BobbingCoin18" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_3" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17, 0)
+
+[node name="BobbingCoin19" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_3" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18, 0)
+
+[node name="BobbingCoin20" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_3" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19, 0)
+
+[node name="BobbingCoin21" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_3" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
+
+[node name="BobbingCoin22" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_3" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21, 0)
+
+[node name="BobbingCoin23" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_3" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22, 0)
+
+[node name="BobbingCoin24" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_3" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23, 0)
+
+[node name="BobbingCoin25" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_3" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, 0)
+
+[node name="BobbingCoin26" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_3" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, 0)
+
+[node name="BobbingCoin27" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_3" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 26, 0)
+
+[node name="line_4" type="Node3D" parent="debug_level/GameElements/coin_groups/pole_fall_lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -6.10352e-05)
+
+[node name="BobbingCoin7" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_4" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+
+[node name="BobbingCoin8" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_4" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+
+[node name="BobbingCoin9" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_4" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+
+[node name="BobbingCoin10" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_4" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, 0)
+
+[node name="BobbingCoin11" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_4" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+
+[node name="BobbingCoin12" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_4" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 0)
+
+[node name="BobbingCoin13" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_4" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+
+[node name="BobbingCoin14" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_4" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 0)
+
+[node name="BobbingCoin15" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_4" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14, 0)
+
+[node name="BobbingCoin16" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_4" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0)
+
+[node name="BobbingCoin17" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_4" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16, 0)
+
+[node name="BobbingCoin18" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_4" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17, 0)
+
+[node name="BobbingCoin19" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_4" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18, 0)
+
+[node name="BobbingCoin20" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_4" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19, 0)
+
+[node name="BobbingCoin21" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_4" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
+
+[node name="BobbingCoin22" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_4" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21, 0)
+
+[node name="BobbingCoin23" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_4" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22, 0)
+
+[node name="BobbingCoin24" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_4" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23, 0)
+
+[node name="BobbingCoin25" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_4" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, 0)
+
+[node name="BobbingCoin26" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_4" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, 0)
+
+[node name="BobbingCoin27" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_4" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 26, 0)
+
+[node name="line_5" type="Node3D" parent="debug_level/GameElements/coin_groups/pole_fall_lines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.999939)
+
+[node name="BobbingCoin7" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_5" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+
+[node name="BobbingCoin8" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_5" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+
+[node name="BobbingCoin9" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_5" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+
+[node name="BobbingCoin10" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_5" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, 0)
+
+[node name="BobbingCoin11" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_5" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+
+[node name="BobbingCoin12" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_5" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 0)
+
+[node name="BobbingCoin13" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_5" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+
+[node name="BobbingCoin14" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_5" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 0)
+
+[node name="BobbingCoin15" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_5" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14, 0)
+
+[node name="BobbingCoin16" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_5" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0)
+
+[node name="BobbingCoin17" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_5" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16, 0)
+
+[node name="BobbingCoin18" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_5" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17, 0)
+
+[node name="BobbingCoin19" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_5" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18, 0)
+
+[node name="BobbingCoin20" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_5" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19, 0)
+
+[node name="BobbingCoin21" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_5" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
+
+[node name="BobbingCoin22" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_5" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21, 0)
+
+[node name="BobbingCoin23" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_5" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22, 0)
+
+[node name="BobbingCoin24" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_5" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23, 0)
+
+[node name="BobbingCoin25" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_5" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, 0)
+
+[node name="BobbingCoin26" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_5" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, 0)
+
+[node name="BobbingCoin27" parent="debug_level/GameElements/coin_groups/pole_fall_lines/line_5" instance=ExtResource("18_dm5b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 26, 0)
+
+[node name="rolling_coins" type="Node3D" parent="debug_level/GameElements/coin_groups"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.8422, 25.5453, -15.3019)
+
+[node name="physics_coin" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.073436, -0.959215, 0.272974, -0.840827, 0.206739, 0.500269, -0.5363, -0.192786, -0.821716, -5.71745, -1.36125, 16.8248)
+
+[node name="physics_coin2" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(0.316285, -0.854014, -0.413066, 0.332734, -0.307893, 0.891342, -0.8884, -0.419359, 0.186778, -1.73028, 25.3818, 18.2734)
+
+[node name="physics_coin3" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(0.661242, -0.346064, 0.665582, -0.454823, 0.520627, 0.722553, -0.59657, -0.780506, 0.186862, -10.1193, 13.0548, 18.3112)
+
+[node name="physics_coin4" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.20917, -0.975981, 0.0609014, -0.634126, 0.182786, 0.751315, -0.744401, 0.118533, -0.657129, -6.13016, 5.16969, 16.1474)
+
+[node name="physics_coin5" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.073436, -0.959215, 0.272974, -0.840827, 0.206739, 0.500269, -0.5363, -0.192786, -0.821716, -19.4734, 2.65505, 15.8331)
+
+[node name="physics_coin6" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.20917, -0.975981, 0.0609014, -0.634126, 0.182786, 0.751315, -0.744401, 0.118533, -0.657129, -12.2904, 14.6267, 17.6475)
+
+[node name="physics_coin7" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.0392834, -0.973483, -0.225364, -0.878294, -0.0739147, 0.472375, -0.476507, 0.216492, -0.8521, -10.3616, -3.44642, 19.0527)
+
+[node name="physics_coin8" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.166657, -0.826074, -0.538355, 0.316594, -0.561913, 0.764215, -0.933808, -0.0430786, 0.355176, 2.00516, 15.9734, 14.2887)
+
+[node name="physics_coin9" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(0.471469, -0.756598, 0.453075, -0.319558, 0.332273, 0.887399, -0.821949, -0.563166, -0.0851215, 2.43101, 12.7045, 8.69196)
+
+[node name="physics_coin10" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.298123, -0.858788, -0.416659, -0.736049, -0.0710948, 0.673185, -0.607746, 0.507373, -0.610917, -16.0357, 8.5013, 22.4517)
+
+[node name="physics_coin11" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.0392834, -0.973483, -0.225364, -0.878294, -0.0739147, 0.472375, -0.476507, 0.216492, -0.8521, 5.50033, 2.74788, 26.3309)
+
+[node name="physics_coin12" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.298123, -0.858788, -0.416659, -0.736049, -0.0710948, 0.673185, -0.607746, 0.507373, -0.610917, -9.35799, 14.7403, 25.8952)
+
+[node name="physics_coin13" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.073436, -0.959215, 0.272974, -0.840827, 0.206739, 0.500269, -0.5363, -0.192786, -0.821716, -1.43456, 11.9699, -0.153442)
+
+[node name="physics_coin14" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(0.316285, -0.854014, -0.413066, 0.332734, -0.307893, 0.891342, -0.8884, -0.419359, 0.186778, -5.49314, 17.6588, 13.969)
+
+[node name="physics_coin15" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(0.661242, -0.346064, 0.665582, -0.454823, 0.520627, 0.722553, -0.59657, -0.780506, 0.186862, 7.46141, 12.9148, 17.5961)
+
+[node name="physics_coin16" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.20917, -0.975981, 0.0609014, -0.634126, 0.182786, 0.751315, -0.744401, 0.118533, -0.657129, -18.7416, 20.1068, -1.98764)
+
+[node name="physics_coin17" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.073436, -0.959215, 0.272974, -0.840827, 0.206739, 0.500269, -0.5363, -0.192786, -0.821716, -3.21703, 13.3008, 1.09525)
+
+[node name="physics_coin18" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.20917, -0.975981, 0.0609014, -0.634126, 0.182786, 0.751315, -0.744401, 0.118533, -0.657129, -9.49418, 26.8161, 2.65076)
+
+[node name="physics_coin19" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.0392834, -0.973483, -0.225364, -0.878294, -0.0739147, 0.472375, -0.476507, 0.216492, -0.8521, -17.5863, 9.49668, 1.26546)
+
+[node name="physics_coin20" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.166657, -0.826074, -0.538355, 0.316594, -0.561913, 0.764215, -0.933808, -0.0430786, 0.355176, -3.311, 11.4172, 15.9955)
+
+[node name="physics_coin21" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(0.471469, -0.756598, 0.453075, -0.319558, 0.332273, 0.8874, -0.821949, -0.563166, -0.0851215, 3.7481, 11.9687, -2.45065)
+
+[node name="physics_coin22" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.298123, -0.858788, -0.416659, -0.736049, -0.0710948, 0.673185, -0.607746, 0.507373, -0.610917, -21.5091, 18.9514, 8.92766)
+
+[node name="physics_coin23" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.0392834, -0.973483, -0.225364, -0.878294, -0.0739147, 0.472375, -0.476507, 0.216492, -0.8521, -0.197086, 8.8295, 6.47865)
+
+[node name="physics_coin24" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.298123, -0.858788, -0.416659, -0.736049, -0.0710948, 0.673185, -0.607746, 0.507373, -0.610917, -30.5779, 21.8409, 6.94336)
+
+[node name="physics_coin25" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.073436, -0.959215, 0.272974, -0.840827, 0.206739, 0.500269, -0.5363, -0.192786, -0.821716, -8.61201, 6.28583, 18.8068)
+
+[node name="physics_coin26" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(0.316285, -0.854014, -0.413066, 0.332734, -0.307893, 0.891342, -0.8884, -0.419359, 0.186778, -6.99859, 20.1537, 14.9762)
+
+[node name="physics_coin27" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(0.661242, -0.346064, 0.665582, -0.454823, 0.520627, 0.722553, -0.59657, -0.780506, 0.186862, 2.42746, 12.2341, 21.3777)
+
+[node name="physics_coin28" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.20917, -0.975981, 0.0609014, -0.634126, 0.182786, 0.751315, -0.744401, 0.118533, -0.657129, -15.9202, 8.00498, 14.5462)
+
+[node name="physics_coin29" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.073436, -0.959215, 0.272974, -0.840827, 0.206739, 0.500269, -0.5363, -0.192786, -0.821716, -6.12795, 3.73299, 19.7983)
+
+[node name="physics_coin30" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.20917, -0.975981, 0.0609014, -0.634126, 0.182786, 0.751315, -0.744401, 0.118533, -0.657129, -13.3802, 6.96873, 14.5939)
+
+[node name="physics_coin31" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.0392834, -0.973483, -0.225364, -0.878294, -0.0739147, 0.472375, -0.476507, 0.216492, -0.8521, -2.94745, 8.20952, 25.243)
+
+[node name="physics_coin32" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.166657, -0.826074, -0.538355, 0.316594, -0.561913, 0.764215, -0.933808, -0.0430786, 0.355176, -16.8047, 21.0514, 11.079)
+
+[node name="physics_coin33" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(0.471469, -0.756598, 0.453075, -0.319558, 0.332273, 0.887399, -0.821949, -0.563166, -0.0851215, 0.132862, 14.6268, 8.76936)
+
+[node name="physics_coin34" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.298123, -0.858788, -0.416659, -0.736049, -0.0710948, 0.673185, -0.607746, 0.507373, -0.610917, -11.766, 4.78556, 22.256)
+
+[node name="physics_coin35" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.0392834, -0.973483, -0.225364, -0.878294, -0.0739147, 0.472375, -0.476507, 0.216492, -0.8521, 1.30223, 4.06276, 25.68)
+
+[node name="physics_coin36" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.298123, -0.858788, -0.416659, -0.736049, -0.0710948, 0.673185, -0.607746, 0.507373, -0.610917, -20.3654, 8.49937, 20.6948)
+
+[node name="physics_coin37" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.073436, -0.959215, 0.272974, -0.840827, 0.206739, 0.500269, -0.5363, -0.192786, -0.821716, -3.92944, 15.8045, 0.560753)
+
+[node name="physics_coin38" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(0.316285, -0.854014, -0.413066, 0.332734, -0.307893, 0.891342, -0.8884, -0.419359, 0.186778, 2.05944, 15.142, 15.0855)
+
+[node name="physics_coin39" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(0.661242, -0.346064, 0.665582, -0.454823, 0.520627, 0.722553, -0.59657, -0.780506, 0.186862, -13.4642, 13.3076, 12.1298)
+
+[node name="physics_coin40" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.20917, -0.975981, 0.0609014, -0.634126, 0.182786, 0.751315, -0.744401, 0.118533, -0.657129, -13.0547, 20.0021, -0.501343)
+
+[node name="physics_coin41" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.073436, -0.959215, 0.272974, -0.840827, 0.206739, 0.500269, -0.5363, -0.192786, -0.821716, 5.03142, 14.7884, 3.84225)
+
+[node name="physics_coin42" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.20917, -0.975981, 0.0609014, -0.634126, 0.182786, 0.751315, -0.744401, 0.118533, -0.657129, -8.24599, 23.3035, 1.71856)
+
+[node name="physics_coin43" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.0392834, -0.973483, -0.225364, -0.878294, -0.0739147, 0.472375, -0.476507, 0.216492, -0.8521, -11.6277, 15.9188, 5.17825)
+
+[node name="physics_coin44" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.166657, -0.826074, -0.538355, 0.316594, -0.561913, 0.764215, -0.933808, -0.0430786, 0.355176, -10.7042, 19.4145, 16.8981)
+
+[node name="physics_coin45" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(0.471469, -0.756598, 0.453075, -0.319558, 0.332273, 0.8874, -0.821949, -0.563166, -0.0851215, 3.46497, 20.5422, 0.565254)
+
+[node name="physics_coin46" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.298123, -0.858788, -0.416659, -0.736049, -0.0710948, 0.673185, -0.607746, 0.507373, -0.610917, -22.4432, 25.0974, 10.8937)
+
+[node name="physics_coin47" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.0392834, -0.973483, -0.225364, -0.878294, -0.0739147, 0.472375, -0.476507, 0.216492, -0.8521, -7.59061, 13.6245, 6.22636)
+
+[node name="physics_coin48" parent="debug_level/GameElements/coin_groups/rolling_coins" instance=ExtResource("19_1pi3u")]
+transform = Transform3D(-0.298123, -0.858788, -0.416659, -0.736049, -0.0710948, 0.673185, -0.607746, 0.507373, -0.610917, -22.0603, 23.9782, 9.99666)
+
+[node name="LevelGeometry" type="Node3D" parent="debug_level"]
+
+[node name="walls" type="CSGCylinder3D" parent="debug_level/LevelGeometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175, 75, 0)
+use_collision = true
+radius = 400.0
+height = 250.0
+sides = 6
+material = SubResource("StandardMaterial3D_ncaya")
+metadata/_edit_lock_ = true
+
+[node name="level_cutout" type="CSGCylinder3D" parent="debug_level/LevelGeometry/walls"]
+operation = 2
+radius = 245.0
+height = 300.0
+sides = 6
+material = ExtResource("9_8jyaf")
+metadata/_edit_lock_ = true
+
+[node name="DebugGeo" type="Node3D" parent="debug_level/LevelGeometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 60)
+
+[node name="FunkyPole" type="Node3D" parent="debug_level/LevelGeometry/DebugGeo"]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, 0, 0, 1, 60, 0, -105)
+
+[node name="CSGMesh3D17" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/FunkyPole"]
+transform = Transform3D(0.464842, 0, 0.885394, 0, 1, 0, -0.885394, 0, 0.464842, 0, 12.6, 0)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D16" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/FunkyPole/CSGMesh3D17"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.25349, 8.5, 0)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_wnm7q")
+
+[node name="CSGMesh3D18" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/FunkyPole/CSGMesh3D17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 1.25)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_wnm7q")
+
+[node name="CeilingTest" type="Node3D" parent="debug_level/LevelGeometry/DebugGeo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, -10)
+
+[node name="ceiling_test" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/CeilingTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 3.55271e-15, 0, 1, 0, 10, 0)
+use_collision = true
+collision_layer = 3
+mesh = SubResource("BoxMesh_1fkf5")
+metadata/_edit_lock_ = true
+
+[node name="stand_subtractor_block" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/CeilingTest/ceiling_test"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, -8)
+operation = 2
+mesh = SubResource("BoxMesh_fieu7")
+
+[node name="duck_subtractor_block" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/CeilingTest/ceiling_test"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.5, -5)
+operation = 2
+mesh = SubResource("BoxMesh_bigbh")
+
+[node name="crouch_subtractor_block" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/CeilingTest/ceiling_test"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9, -2)
+operation = 2
+mesh = SubResource("BoxMesh_d0iq4")
+
+[node name="crawl_subtractor_block" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/CeilingTest/ceiling_test"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.5, 1)
+operation = 2
+mesh = SubResource("BoxMesh_fqnl1")
+
+[node name="crouch_subtractor_block2" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/CeilingTest/ceiling_test"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9, 3)
+operation = 2
+mesh = SubResource("BoxMesh_d0iq4")
+
+[node name="duck_subtractor_block2" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/CeilingTest/ceiling_test"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.5, 5)
+operation = 2
+mesh = SubResource("BoxMesh_bigbh")
+
+[node name="stand_subtractor_block2" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/CeilingTest/ceiling_test"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, 7)
+operation = 2
+mesh = SubResource("BoxMesh_fieu7")
+
+[node name="StairsTest" type="Node3D" parent="debug_level/LevelGeometry/DebugGeo"]
+transform = Transform3D(-5.96046e-08, 0, 1, 0, 1, 0, -1, 0, -5.96046e-08, -35.5, 0, -80)
+
+[node name="step" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/StairsTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -5)
+use_collision = true
+mesh = SubResource("BoxMesh_uumii")
+
+[node name="wide_minimal_step" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/StairsTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.45, -0.5)
+use_collision = true
+mesh = SubResource("BoxMesh_yfb36")
+
+[node name="wide_minimal_step2" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/StairsTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2.05, 23.5)
+use_collision = true
+mesh = SubResource("BoxMesh_yfb36")
+
+[node name="tall_minimal_step" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/StairsTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.10001, 1.25, 7.5)
+use_collision = true
+mesh = SubResource("BoxMesh_wnm7q")
+
+[node name="tall_minimal_step2" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/StairsTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3, 0.75, 7.5)
+use_collision = true
+mesh = SubResource("BoxMesh_wnm7q")
+
+[node name="tall_minimal_step3" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/StairsTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0.25, 7.5)
+use_collision = true
+mesh = SubResource("BoxMesh_wnm7q")
+
+[node name="platform_1" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/StairsTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.5)
+use_collision = true
+mesh = SubResource("BoxMesh_n8kgl")
+
+[node name="platform_2" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/StairsTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 7.5)
+use_collision = true
+mesh = SubResource("BoxMesh_dq34n")
+
+[node name="tall_minimal_step4" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/StairsTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3, 5.25, 26.4021)
+use_collision = true
+mesh = SubResource("BoxMesh_wnm7q")
+
+[node name="tall_minimal_step5" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/StairsTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3, 4.75, 26.2021)
+use_collision = true
+mesh = SubResource("BoxMesh_wnm7q")
+
+[node name="tall_minimal_step6" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/StairsTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3, 4.25, 26.0021)
+use_collision = true
+mesh = SubResource("BoxMesh_wnm7q")
+
+[node name="tall_minimal_step7" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/StairsTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3, 6.75, 27.0021)
+use_collision = true
+mesh = SubResource("BoxMesh_wnm7q")
+
+[node name="tall_minimal_step8" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/StairsTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3, 6.25, 26.8021)
+use_collision = true
+mesh = SubResource("BoxMesh_wnm7q")
+
+[node name="tall_minimal_step10" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/StairsTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3, 7.75, 27.4021)
+use_collision = true
+mesh = SubResource("BoxMesh_wnm7q")
+
+[node name="tall_minimal_step11" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/StairsTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3, 7.25, 27.2021)
+use_collision = true
+mesh = SubResource("BoxMesh_wnm7q")
+
+[node name="tall_minimal_step9" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/StairsTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3, 5.75, 26.6021)
+use_collision = true
+mesh = SubResource("BoxMesh_wnm7q")
+
+[node name="tall_minimal_step12" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/StairsTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 5.25, 27.3021)
+use_collision = true
+mesh = SubResource("BoxMesh_8puai")
+
+[node name="tall_minimal_step13" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/StairsTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 4.75, 27.1021)
+use_collision = true
+mesh = SubResource("BoxMesh_gv2x6")
+
+[node name="tall_minimal_step14" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/StairsTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 4.25, 26.9021)
+use_collision = true
+mesh = SubResource("BoxMesh_gv2x6")
+
+[node name="tall_minimal_step15" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/StairsTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 6.75, 27.9021)
+use_collision = true
+mesh = SubResource("BoxMesh_gv2x6")
+
+[node name="tall_minimal_step16" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/StairsTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 6.25, 27.7021)
+use_collision = true
+mesh = SubResource("BoxMesh_gv2x6")
+
+[node name="tall_minimal_step17" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/StairsTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 7.75, 28.3021)
+use_collision = true
+mesh = SubResource("BoxMesh_gv2x6")
+
+[node name="tall_minimal_step18" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/StairsTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 7.25, 28.1021)
+use_collision = true
+mesh = SubResource("BoxMesh_gv2x6")
+
+[node name="tall_minimal_step19" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/StairsTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 5.75, 27.5021)
+use_collision = true
+mesh = SubResource("BoxMesh_gv2x6")
+
+[node name="platform_5" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/StairsTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 31.5)
+use_collision = true
+mesh = SubResource("BoxMesh_8qey6")
+
+[node name="platform_3" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/StairsTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 15.5)
+use_collision = true
+mesh = SubResource("BoxMesh_t1exr")
+
+[node name="platform_4" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/StairsTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 23.5)
+use_collision = true
+mesh = SubResource("BoxMesh_32m5s")
+
+[node name="SlopesTest" type="Node3D" parent="debug_level/LevelGeometry/DebugGeo"]
+transform = Transform3D(0.707106, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707106, -25.1414, 0, -12.4444)
+
+[node name="ramp_10d" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/SlopesTest"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.999998, 20)
+use_collision = true
+mesh = SubResource("PrismMesh_stdua")
+
+[node name="ramp_18d" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/SlopesTest"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 2, 12)
+use_collision = true
+mesh = SubResource("PrismMesh_maodd")
+
+[node name="ramp_27d" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/SlopesTest"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 3, 4)
+use_collision = true
+mesh = SubResource("PrismMesh_yfb36")
+
+[node name="ramp_34d" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/SlopesTest"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 4, -4)
+use_collision = true
+mesh = SubResource("PrismMesh_uumii")
+
+[node name="ramp_40d" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/SlopesTest"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 5, -12)
+use_collision = true
+mesh = SubResource("PrismMesh_cebl7")
+
+[node name="ramp_45d" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/SlopesTest"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 6, -20)
+use_collision = true
+mesh = SubResource("PrismMesh_khno1")
+
+[node name="JumpTest" type="Node3D" parent="debug_level/LevelGeometry/DebugGeo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -20)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/JumpTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 5.1, 6)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_yfb36")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/JumpTest/CSGMesh3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00161934, -2.59809, 0.0316052)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cebl7")
+
+[node name="CSGMesh3D15" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/JumpTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.1708, 5.1, 6.54812)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_yfb36")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/JumpTest/CSGMesh3D15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.6, 0.0304594)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cebl7")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/JumpTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7336, 8.1, 1.8593)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_yfb36")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/JumpTest/CSGMesh3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.1, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_khno1")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/JumpTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.7336, 8.1, 17.8593)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_yfb36")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/JumpTest/CSGMesh3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.1, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_khno1")
+
+[node name="CSGMesh3D14" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/JumpTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0759, 8.1, 2.66143)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_yfb36")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/JumpTest/CSGMesh3D14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.1, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_khno1")
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/JumpTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.03, 7.6, 5.754)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_onqnv")
+
+[node name="CSGMesh3D13" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/JumpTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.03, 7.5, 17.754)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_onqnv")
+
+[node name="CSGMesh3D5" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/JumpTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.562, 5.5, 3.311)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_au5bj")
+
+[node name="CSGMesh3D10" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/JumpTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.8562, 5.5, 10.8243)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_au5bj")
+
+[node name="CSGMesh3D6" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/JumpTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.9296, 6, 1.94276)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_mh3qq")
+
+[node name="CSGMesh3D12" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/JumpTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.6087, 6, 11.702)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_mh3qq")
+
+[node name="CSGMesh3D8" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/JumpTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.9829, 6, 1.48823)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_mh3qq")
+
+[node name="CSGMesh3D9" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/JumpTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.4803, 6, 4.61653)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_mh3qq")
+
+[node name="CSGMesh3D7" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/JumpTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.249, 6.5, 3.148)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_kuync")
+
+[node name="CSGMesh3D11" type="CSGMesh3D" parent="debug_level/LevelGeometry/DebugGeo/JumpTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.6287, 6.5, 10.2201)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_kuync")
+
+[node name="PondGeo" type="Node3D" parent="debug_level/LevelGeometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95, 0, 100)
+
+[node name="pondside_surf_ramp" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo"]
+transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -20, 15, -100)
+use_collision = true
+mesh = SubResource("PrismMesh_is1fq")
+metadata/_edit_lock_ = true
+
+[node name="Lilypads" type="Node3D" parent="debug_level/LevelGeometry/PondGeo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, -100)
+
+[node name="CSGMesh3D17" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5017, -13.384, 23.9641)
+use_collision = true
+mesh = SubResource("CylinderMesh_ncdai")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D23" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.7799, 4, 16.6692)
+use_collision = true
+mesh = SubResource("CylinderMesh_ncdai")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D23"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D24" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9026, -11.6213, -11.9968)
+use_collision = true
+mesh = SubResource("CylinderMesh_ncdai")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D24"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D50" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.238048, -11.6213, -27.2573)
+use_collision = true
+mesh = SubResource("CylinderMesh_ncdai")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D50"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D51" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8593, -11.6213, -19.4673)
+use_collision = true
+mesh = SubResource("CylinderMesh_ncdai")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D51"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D52" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.31283, -11.6213, 4.78172)
+use_collision = true
+mesh = SubResource("CylinderMesh_ncdai")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D52"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D53" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9, -11.6213, 19.6028)
+use_collision = true
+mesh = SubResource("CylinderMesh_ncdai")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D53"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D54" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.47518, -11.6213, 19.7226)
+use_collision = true
+mesh = SubResource("CylinderMesh_ncdai")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D54"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D55" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6171, -11.6213, 3.38351)
+use_collision = true
+mesh = SubResource("CylinderMesh_ncdai")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D55"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D56" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6171, -4.86991, 7.97763)
+use_collision = true
+mesh = SubResource("CylinderMesh_ncdai")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D56"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D57" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.22909, -4.86991, -9.51999)
+use_collision = true
+mesh = SubResource("CylinderMesh_ncdai")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D57"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D58" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.6217, -4.86991, -6.28413)
+use_collision = true
+mesh = SubResource("CylinderMesh_ncdai")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D58"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D59" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.161448, -4.86991, 24.4765)
+use_collision = true
+mesh = SubResource("CylinderMesh_ncdai")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D59"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D25" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19683, 4, -14.4337)
+use_collision = true
+mesh = SubResource("CylinderMesh_ncdai")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D25"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D26" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8252, -6.45964, -22.5433)
+use_collision = true
+mesh = SubResource("CylinderMesh_mjpix")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D26"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D44" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.47235, -6.45964, -21.7669)
+use_collision = true
+mesh = SubResource("CylinderMesh_mjpix")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D44"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D45" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.70123, -6.45964, -5.05828)
+use_collision = true
+mesh = SubResource("CylinderMesh_mjpix")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D45"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D46" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.6469, -6.45964, 35.9711)
+use_collision = true
+mesh = SubResource("CylinderMesh_mjpix")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D46"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D47" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.69288, -6.45963, 14.5065)
+use_collision = true
+mesh = SubResource("CylinderMesh_mjpix")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D47"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D27" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.83291, -3.11359, -30.573)
+use_collision = true
+mesh = SubResource("CylinderMesh_ncdai")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D27"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D28" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.0136, 4, -10.7074)
+use_collision = true
+mesh = SubResource("CylinderMesh_ncdai")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D28"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D29" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.98813, 4, 1.78556)
+use_collision = true
+mesh = SubResource("CylinderMesh_ncdai")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D29"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D30" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.96948, -7.91512, 30.439)
+use_collision = true
+mesh = SubResource("CylinderMesh_ncdai")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D30"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D31" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.0191, 0.0224762, 33.0429)
+use_collision = true
+mesh = SubResource("CylinderMesh_ncdai")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D31"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D38" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1271, 0.0224762, 30.161)
+use_collision = true
+mesh = SubResource("CylinderMesh_ncdai")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D38"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D39" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0145, 0.0224762, 26.4524)
+use_collision = true
+mesh = SubResource("CylinderMesh_ncdai")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D39"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D40" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52998, 0.0224762, 4.576)
+use_collision = true
+mesh = SubResource("CylinderMesh_ncdai")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D40"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D41" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.11911, 0.0224762, 8.14909)
+use_collision = true
+mesh = SubResource("CylinderMesh_ncdai")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D41"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D42" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4557, 0.0224762, 14.9131)
+use_collision = true
+mesh = SubResource("CylinderMesh_ncdai")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D42"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D18" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.17686, 19.4769, -33.8478)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_td8rg")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_ktx8r")
+
+[node name="CSGMesh3D60" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4146, 14.6134, -3.32804)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_td8rg")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D60"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_ktx8r")
+
+[node name="CSGMesh3D32" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3877, 4, 0.816104)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_td8rg")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D32"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D33" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0669, 7.1979, -35.7771)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_td8rg")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D33"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14.9564, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_ud8sp")
+
+[node name="CSGMesh3D34" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.74777, -4.72662, 10.8033)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_4cf5r")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D34"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D48" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.01987, -4.72662, -15.2673)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_4cf5r")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D48"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D49" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9441, -4.72662, -15.0885)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_4cf5r")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D49"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D36" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.95981, -0.0419216, -5.69556)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_ow684")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D36"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_puves")
+
+[node name="CSGMesh3D43" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4997, -0.0419216, -32.8913)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_ow684")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D43"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_puves")
+
+[node name="CSGMesh3D37" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.91273, -0.0419216, 21.0485)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_ow684")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D37"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_puves")
+
+[node name="CSGMesh3D35" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.26345, -3.98715, 23.0846)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_gmy16")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D35"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D22" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7514, 5.12593, 16.4618)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_td8rg")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D22"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D19" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9942, 4.93245, -25.7944)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_td8rg")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D20" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.50231, 7.14325, -21.5331)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_td8rg")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="CSGMesh3D21" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.4777, -0.0236807, 34.5931)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_8ocju")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo/Lilypads/CSGMesh3D21"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13, 0.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_cmckk")
+
+[node name="Water" type="CSGMesh3D" parent="debug_level/LevelGeometry/PondGeo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, -10, -100)
+mesh = SubResource("BoxMesh_k18g4")
+metadata/_edit_lock_ = true
+
+[node name="SurfPitGeo" type="Node3D" parent="debug_level/LevelGeometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 175, 0, 0)
+
+[node name="MudpitPoles" type="Node3D" parent="debug_level/LevelGeometry/SurfPitGeo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 0)
+
+[node name="CSGMesh3D19" type="CSGMesh3D" parent="debug_level/LevelGeometry/SurfPitGeo/MudpitPoles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, -13.86, 0)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_8puai")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="debug_level/LevelGeometry/SurfPitGeo/MudpitPoles/CSGMesh3D19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -13, -5.97)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_gv2x6")
+
+[node name="CSGMesh3D5" type="CSGMesh3D" parent="debug_level/LevelGeometry/SurfPitGeo/MudpitPoles/CSGMesh3D19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -13, -5.97)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_gv2x6")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="debug_level/LevelGeometry/SurfPitGeo/MudpitPoles/CSGMesh3D19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -13, 6.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_gv2x6")
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="debug_level/LevelGeometry/SurfPitGeo/MudpitPoles/CSGMesh3D19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -13, 6.03)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_gv2x6")
+
+[node name="CSGMesh3D20" type="CSGMesh3D" parent="debug_level/LevelGeometry/SurfPitGeo/MudpitPoles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -18.215, 0)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_8qey6")
+
+[node name="CSGMesh3D22" type="CSGMesh3D" parent="debug_level/LevelGeometry/SurfPitGeo/MudpitPoles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90, -3.89, 30)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_8qey6")
+
+[node name="CSGMesh3D23" type="CSGMesh3D" parent="debug_level/LevelGeometry/SurfPitGeo/MudpitPoles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90, -3.89, -30)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_iyhq1")
+
+[node name="CSGMesh3D25" type="CSGMesh3D" parent="debug_level/LevelGeometry/SurfPitGeo/MudpitPoles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -3.89, 30)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_8qey6")
+
+[node name="CSGMesh3D26" type="CSGMesh3D" parent="debug_level/LevelGeometry/SurfPitGeo/MudpitPoles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -3.89, -30)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_iyhq1")
+
+[node name="CSGMesh3D24" type="CSGMesh3D" parent="debug_level/LevelGeometry/SurfPitGeo/MudpitPoles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 211.523, 37.4984, -6.10352e-05)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_8qey6")
+
+[node name="CSGMesh3D21" type="CSGMesh3D" parent="debug_level/LevelGeometry/SurfPitGeo/MudpitPoles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, -10, 0)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_s4n3l")
+
+[node name="CSGMesh3D17" type="CSGMesh3D" parent="debug_level/LevelGeometry/SurfPitGeo/MudpitPoles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -20, 0)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_qn78l")
+
+[node name="CSGMesh3D18" type="CSGMesh3D" parent="debug_level/LevelGeometry/SurfPitGeo/MudpitPoles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, -8, 30)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_5vwqk")
+
+[node name="CSGMesh3D27" type="CSGMesh3D" parent="debug_level/LevelGeometry/SurfPitGeo/MudpitPoles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.46, -4, 16.22)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_26cs1")
+
+[node name="BigRamp" type="Node3D" parent="debug_level/LevelGeometry/SurfPitGeo"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -175, 0, 0)
+
+[node name="CSGMesh3D28" type="CSGMesh3D" parent="debug_level/LevelGeometry/SurfPitGeo/BigRamp"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 75, 0)
+material_overlay = SubResource("StandardMaterial3D_nqvgl")
+use_collision = true
+mesh = SubResource("CylinderMesh_h8bdu")
+metadata/_edit_lock_ = true
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="debug_level/LevelGeometry/SurfPitGeo/BigRamp"]
+transform = Transform3D(-4.10753e-08, -0.939693, 0.34202, 1.49502e-08, 0.34202, 0.939693, -1, 4.37114e-08, 3.55271e-15, -12, 150, 6.5)
+use_collision = true
+collision_mask = 0
+polygon = PackedVector2Array(0, 0, 6, 11, 12, 0)
+mode = 2
+path_node = NodePath("../Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = SubResource("StandardMaterial3D_8puai")
+metadata/_edit_lock_ = true
+
+[node name="Path3D" type="Path3D" parent="debug_level/LevelGeometry/SurfPitGeo/BigRamp"]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 0, 150, 0)
+curve = SubResource("Curve3D_ktx8r")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="debug_level/LevelGeometry/SurfPitGeo/BigRamp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 149.5, 0)
+visible = false
+use_collision = true
+mesh = SubResource("CylinderMesh_iwmtt")
+
+[node name="pit_ramps" type="CSGMesh3D" parent="debug_level/LevelGeometry/SurfPitGeo"]
+transform = Transform3D(-8.9407e-08, 1.54988e-15, -1, 0, 1, -4.73656e-15, 1, 4.94476e-15, -8.9407e-08, 20.0033, -30, 0.00115967)
+use_collision = true
+mesh = SubResource("PrismMesh_psbkl")
+metadata/_edit_lock_ = true
+
+[node name="ramps_cutout_flat" type="CSGMesh3D" parent="debug_level/LevelGeometry/SurfPitGeo/pit_ramps"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17, 0)
+operation = 2
+mesh = SubResource("BoxMesh_mw6r1")
+metadata/_edit_lock_ = true
+
+[node name="ramps_cutout_round" type="CSGMesh3D" parent="debug_level/LevelGeometry/SurfPitGeo/pit_ramps"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16, -58)
+operation = 2
+mesh = SubResource("SphereMesh_iafbq")
+metadata/_edit_lock_ = true

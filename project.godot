@@ -12,9 +12,13 @@ config_version=5
 
 config/name="Action Platformer Starter Kit"
 config/version="0.1.1"
-run/main_scene="uid://qv21a7i4cm7t"
+run/main_scene="uid://c253pkc4w1qog"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="uid://de84h8lnykndr"
+
+[audio]
+
+buses/default_bus_layout="res://system/default_bus_layout.tres"
 
 [autoload]
 
@@ -241,3 +245,4 @@ right_click={
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

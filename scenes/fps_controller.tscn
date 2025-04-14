@@ -1,9 +1,9 @@
 [gd_scene load_steps=17 format=4 uid="uid://da8ck5chi6l4k"]
 
-[ext_resource type="PackedScene" uid="uid://8iye7xdll5sx" path="res://scenes/sword.tscn" id="1_jmq5o"]
+[ext_resource type="PackedScene" uid="uid://8iye7xdll5sx" path="res://scenes/node_presets/sword.tscn" id="1_jmq5o"]
 [ext_resource type="Script" uid="uid://br4tip3g1q58g" path="res://scripts/fps_controller.gd" id="1_w0mkn"]
 [ext_resource type="Material" uid="uid://qjp7cgsyi4mi" path="res://assets/player_body_mat_0.tres" id="2_106wt"]
-[ext_resource type="Texture2D" uid="uid://52wvi2ycrt74" path="res://assets/cam_reticle.png" id="4_1tkc5"]
+[ext_resource type="Texture2D" uid="uid://52wvi2ycrt74" path="res://assets/sprites/cam_reticle.png" id="4_1tkc5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7nai2"]
 radius = 0.35

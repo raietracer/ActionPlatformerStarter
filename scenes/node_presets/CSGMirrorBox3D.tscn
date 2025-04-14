@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dbhy2v0n25u7d"]
 
-[ext_resource type="Script" uid="uid://dsxy8aca3q0su" path="res://scripts/mirror.gd" id="1_3ighk"]
+[ext_resource type="Script" uid="uid://dsxy8aca3q0su" path="res://scripts/node_extensions/CSGMirrorBox3D.gd" id="1_3ighk"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_3ighk"]
 viewport_path = NodePath("SubViewport")

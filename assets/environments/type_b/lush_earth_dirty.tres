@@ -1,0 +1,24 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://boblkngjtp702"]
+
+[ext_resource type="Texture2D" uid="uid://cfj2y1r56n7x6" path="res://assets/environments/type_b/grass.png" id="1_kf0r7"]
+[ext_resource type="Texture2D" uid="uid://ymp1mc4761ji" path="res://assets/environments/rough_transparent.png" id="2_tlhdg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_txc25"]
+transparency = 1
+albedo_color = Color(0.17, 0.122117, 0.0595, 1)
+albedo_texture = ExtResource("2_tlhdg")
+metallic_specular = 0.0
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+uv1_world_triplanar = true
+grow = true
+grow_amount = 0.05
+
+[resource]
+next_pass = SubResource("StandardMaterial3D_txc25")
+disable_ambient_light = true
+albedo_texture = ExtResource("1_kf0r7")
+metallic_specular = 0.0
+uv1_scale = Vector3(0.01, 0.01, 0.01)
+uv1_triplanar = true
+uv1_world_triplanar = true
