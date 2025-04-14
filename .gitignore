@@ -22,3 +22,4 @@ mono_crash.*.json
 itch-builds/
 .vsc/
 TODO.md
+/assets/in_progress/
